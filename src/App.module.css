@@ -1,0 +1,42 @@
+.Grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 30em 50em 30em;
+  grid-template-rows: 10em auto 30em;
+
+  height: 99em;
+}
+
+.Child {
+  background: rgb(16, 46, 86);
+  background: linear-gradient(
+    16deg,
+    rgb(10, 33, 63) 0%,
+    rgb(13, 45, 88) 42%,
+    rgb(8, 45, 95) 100%
+  );
+  border: rgb(13, 27, 66) solid 0.5em;
+  border-radius: 2.5em;
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  color: white;
+}
+
+.stakeButton {
+  background-color: #3084e4;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  height: 3em;
+  width: 7em;
+}
+
+.unstakeButton {
+  background-color: #224374;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  height: 3em;
+  width: 7em;
+}
