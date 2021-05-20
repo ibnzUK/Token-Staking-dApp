@@ -1,8 +1,10 @@
 pragma solidity ^0.5.0;
 
-contract ERC20Token {
-    string  public name = "ERC20Token";
-    string  public symbol = "E2T";
+//Erc 20 test token
+
+contract TestToken {
+    string  public name = "TestToken";
+    string  public symbol = "Tst";
     uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
     uint8   public decimals = 18;
 

@@ -1,0 +1,537 @@
+{
+  "contractName": "TokenStaking",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract TestToken",
+          "name": "_testToken",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "testToken",
+      "outputs": [
+        {
+          "internalType": "contract TestToken",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract TestToken\",\"name\":\"_testToken\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"testToken\",\"outputs\":[{\"internalType\":\"contract TestToken\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TokenStaking.sol\":\"TokenStaking\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TestToken.sol\":{\"keccak256\":\"0x644bc233d77709c986ddef17a8a23ce29fe34f69355561c1637a53ec4179a94a\",\"urls\":[\"bzz-raw://511b728c52ec42d9385699d624ef7e6be5610563a14df10e234163d7996ca2ff\",\"dweb:/ipfs/QmdwvAHxQT1GmWjUXRuHNp9hbYgp9UX6XqdPTEkG3WjRae\"]},\"/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TokenStaking.sol\":{\"keccak256\":\"0x1e03c623b7b71144d78b5e19778722e7d28b563de553f4665993aa65f4e3190f\",\"urls\":[\"bzz-raw://8ba70fe10256d75df71eda50c2ea61c2ef516e1a17fd4d672c890170b072f838\",\"dweb:/ipfs/QmQbtzNTDN5bVWVeDfzHsudyyagL9xZpygAyoH94x25Sgn\"]}},\"version\":1}",
+  "bytecode": "0x60806040526040518060400160405280601a81526020017f5969656c64204661726d696e67202f20546f6b656e20644170700000000000008152506000908051906020019061004f9291906100d7565b5034801561005c57600080fd5b5060405161038c38038061038c8339818101604052602081101561007f57600080fd5b810190808051906020019092919050505080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061017c565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061011857805160ff1916838001178555610146565b82800160010185558215610146579182015b8281111561014557825182559160200191906001019061012a565b5b5090506101539190610157565b5090565b61017991905b8082111561017557600081600090555060010161015d565b5090565b90565b6102018061018b6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806306fdde031461003b5780636895179d146100be575b600080fd5b610043610108565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610083578082015181840152602081019050610068565b50505050905090810190601f1680156100b05780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100c66101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561019e5780601f106101735761010080835404028352916020019161019e565b820191906000526020600020905b81548152906001019060200180831161018157829003601f168201915b505050505081565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820b527c0754f04b581e860896349e2ede83daea5b1045b3905a8aefcef29b297fd64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806306fdde031461003b5780636895179d146100be575b600080fd5b610043610108565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610083578082015181840152602081019050610068565b50505050905090810190601f1680156100b05780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100c66101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561019e5780601f106101735761010080835404028352916020019161019e565b820191906000526020600020905b81548152906001019060200180831161018157829003601f168201915b505050505081565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820b527c0754f04b581e860896349e2ede83daea5b1045b3905a8aefcef29b297fd64736f6c63430005100032",
+  "sourceMap": "56:205:2:-;;;85:49;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;176:82;8:9:-1;5:2;;;30:1;27;20:12;5:2;176:82:2;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;176:82:2;;;;;;;;;;;;;;;;240:10;228:9;;:22;;;;;;;;;;;;;;;;;;176:82;56:205;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "56:205:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;56:205:2;;;;;;;;;;;;;;;;;;;;;;;;85:49;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;85:49:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;141:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;85:49;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;141:26::-;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\nimport \"./TestToken.sol\";\r\n\r\ncontract TokenStaking {\r\n    string public name = \"Yield Farming / Token dApp\";\r\n    TestToken public testToken;\r\n\r\n    constructor(TestToken _testToken) public {\r\n        testToken = _testToken;\r\n    }\r\n}\r\n",
+  "sourcePath": "/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TokenStaking.sol",
+  "ast": {
+    "absolutePath": "/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TokenStaking.sol",
+    "exportedSymbols": {
+      "TokenStaking": [
+        256
+      ]
+    },
+    "id": 257,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 239,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TestToken.sol",
+        "file": "./TestToken.sol",
+        "id": 240,
+        "nodeType": "ImportDirective",
+        "scope": 257,
+        "sourceUnit": 238,
+        "src": "27:25:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 256,
+        "linearizedBaseContracts": [
+          256
+        ],
+        "name": "TokenStaking",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 243,
+            "name": "name",
+            "nodeType": "VariableDeclaration",
+            "scope": 256,
+            "src": "85:49:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 241,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "85:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "5969656c64204661726d696e67202f20546f6b656e2064417070",
+              "id": 242,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "106:28:2",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_9582d38c05ca3dcfe501a6fe2d2f446b46864688193740edfd0a7afd93abccee",
+                "typeString": "literal_string \"Yield Farming / Token dApp\""
+              },
+              "value": "Yield Farming / Token dApp"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 245,
+            "name": "testToken",
+            "nodeType": "VariableDeclaration",
+            "scope": 256,
+            "src": "141:26:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_TestToken_$237",
+              "typeString": "contract TestToken"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 244,
+              "name": "TestToken",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 237,
+              "src": "141:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_TestToken_$237",
+                "typeString": "contract TestToken"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 254,
+              "nodeType": "Block",
+              "src": "217:41:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 252,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 250,
+                      "name": "testToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 245,
+                      "src": "228:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_TestToken_$237",
+                        "typeString": "contract TestToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 251,
+                      "name": "_testToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 247,
+                      "src": "240:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_TestToken_$237",
+                        "typeString": "contract TestToken"
+                      }
+                    },
+                    "src": "228:22:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TestToken_$237",
+                      "typeString": "contract TestToken"
+                    }
+                  },
+                  "id": 253,
+                  "nodeType": "ExpressionStatement",
+                  "src": "228:22:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 255,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 247,
+                  "name": "_testToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 255,
+                  "src": "188:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TestToken_$237",
+                    "typeString": "contract TestToken"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 246,
+                    "name": "TestToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 237,
+                    "src": "188:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TestToken_$237",
+                      "typeString": "contract TestToken"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "187:22:2"
+            },
+            "returnParameters": {
+              "id": 249,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "217:0:2"
+            },
+            "scope": 256,
+            "src": "176:82:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 257,
+        "src": "56:205:2"
+      }
+    ],
+    "src": "0:263:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TokenStaking.sol",
+    "exportedSymbols": {
+      "TokenStaking": [
+        256
+      ]
+    },
+    "id": 257,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 239,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/mnt/e/APP DEVELOPEMENT/APP DEV NEW/BLOCKCHAIN/Token Staking dApp/src/contracts/TestToken.sol",
+        "file": "./TestToken.sol",
+        "id": 240,
+        "nodeType": "ImportDirective",
+        "scope": 257,
+        "sourceUnit": 238,
+        "src": "27:25:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 256,
+        "linearizedBaseContracts": [
+          256
+        ],
+        "name": "TokenStaking",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 243,
+            "name": "name",
+            "nodeType": "VariableDeclaration",
+            "scope": 256,
+            "src": "85:49:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 241,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "85:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "5969656c64204661726d696e67202f20546f6b656e2064417070",
+              "id": 242,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "106:28:2",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_9582d38c05ca3dcfe501a6fe2d2f446b46864688193740edfd0a7afd93abccee",
+                "typeString": "literal_string \"Yield Farming / Token dApp\""
+              },
+              "value": "Yield Farming / Token dApp"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 245,
+            "name": "testToken",
+            "nodeType": "VariableDeclaration",
+            "scope": 256,
+            "src": "141:26:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_TestToken_$237",
+              "typeString": "contract TestToken"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 244,
+              "name": "TestToken",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 237,
+              "src": "141:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_TestToken_$237",
+                "typeString": "contract TestToken"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 254,
+              "nodeType": "Block",
+              "src": "217:41:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 252,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 250,
+                      "name": "testToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 245,
+                      "src": "228:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_TestToken_$237",
+                        "typeString": "contract TestToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 251,
+                      "name": "_testToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 247,
+                      "src": "240:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_TestToken_$237",
+                        "typeString": "contract TestToken"
+                      }
+                    },
+                    "src": "228:22:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TestToken_$237",
+                      "typeString": "contract TestToken"
+                    }
+                  },
+                  "id": 253,
+                  "nodeType": "ExpressionStatement",
+                  "src": "228:22:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 255,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 247,
+                  "name": "_testToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 255,
+                  "src": "188:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_TestToken_$237",
+                    "typeString": "contract TestToken"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 246,
+                    "name": "TestToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 237,
+                    "src": "188:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TestToken_$237",
+                      "typeString": "contract TestToken"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "187:22:2"
+            },
+            "returnParameters": {
+              "id": 249,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "217:0:2"
+            },
+            "scope": 256,
+            "src": "176:82:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 257,
+        "src": "56:205:2"
+      }
+    ],
+    "src": "0:263:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x047E1524F9A911aA43F8fb6B59970EC48435DC8f",
+      "transactionHash": "0xf1d2456cc1566d46fe324ec3f5ce32eb2f4c787882a808a41c157842bd0e86f0"
+    }
+  },
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-05-20T11:42:25.398Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

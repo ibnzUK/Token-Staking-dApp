@@ -1,0 +1,17 @@
+.stakeButton {
+    background-color: #3084e4;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    height: 3em;
+    width: 7em;
+  }
+  
+  .unstakeButton {
+    background-color: #224374;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    height: 3em;
+    width: 7em;
+  }
