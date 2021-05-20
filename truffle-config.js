@@ -23,12 +23,13 @@ module.exports = {
 }
 
 
+//truffle test
 
-// commands for truffle
-// run tests - truffle test
+
+
+
 // call console - truffle console
 // get contract - await TestToken.deployed()
 // to compile -    truffle compile
 // to deploy - truffle migrate --reset
 
-// human readible balance - web3.utils.fromWei(balance)
