@@ -10,7 +10,7 @@
 * Added ERC20 TestToken 
 * Added Token Staking basic contract
 * Started testing 
--
+
 * Updated Token Staking contract
 * Added ability to stake, unstake, redistribute
 * Implemented testing 
@@ -46,7 +46,7 @@ testing output
       ✓ checking user balance (110ms)
     TokenStaking unstakeTokens function
       ✓ checking users balance (445ms)
-      ✓ should do something```
+```      
 
 
 for private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
