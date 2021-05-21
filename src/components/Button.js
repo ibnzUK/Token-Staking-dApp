@@ -2,14 +2,11 @@ import React from 'react';
 import classes from './Button.module.css';
 
 const Button = (props) => {
-
-
-
   const onStakeClick = () => {
-    console.log('boom1');
+    props.stake();
   };
   const onUnStakeClick = () => {
-    console.log('boom2');
+    props.unstake();
   };
 
   return (

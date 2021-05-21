@@ -5,12 +5,14 @@ import Button from './components/Button';
 
 const App = () => {
   const [account, setAccount] = useState('Connecting to Metamask..');
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     //connecting to ethereum blockchain
     const ethEnabled = async () => {
       if (window.ethereum) {
-        await window.ethereum.send('eth_requestAccounts');
+        // await window.ethereum.send('eth_requestAccounts');
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
         window.web3 = new Web3(window.ethereum);
 
         //connecting to metamask
@@ -25,12 +27,19 @@ const App = () => {
     ethEnabled();
   }, []);
 
+  const inputChangeHandler = (event) => {
+    event.preventDefault();
+    setInputValue(event.target.value);
+  };
+
   const stakeHandler = () => {
-    console.log('stake');
+    console.log('staking: ', inputValue);
+    setInputValue('');
   };
 
   const unStakeHandler = () => {
-    console.log('unstake');
+    console.log('unstaking: ', inputValue);
+    setInputValue('');
   };
 
   return (
@@ -39,7 +48,12 @@ const App = () => {
         <h1>Yield Farming / Token Staking dApp</h1>
         <p>{account}</p>
         <div className={classes.inputDiv}>
-          <input className={classes.input} type="text"></input>
+          <input
+            className={classes.input}
+            type="text"
+            onChange={inputChangeHandler}
+            value={inputValue}
+          ></input>
         </div>
         <Button buttonState={'stake'} stake={stakeHandler}>
           Stake
