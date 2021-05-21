@@ -27,3 +27,26 @@
   -webkit-box-shadow: 0px 0px 50px 50px rgba(0, 0, 0, 0.44);
   box-shadow: 0px 0px 800px 20px rgba(19, 75, 99, 0.44);
 }
+
+
+
+/* ......... */
+.inputDiv {
+  padding: 3em;
+  height: 5em;
+
+align-items: center;
+}
+
+.input {
+height: 2.5em;
+  width: 30em;
+  border-radius: 0.5em;
+  border: none;
+  text-align: center;
+
+}
+input:focus {
+  outline: none;
+  border: 0.2em solid rgba(23, 60, 139, 0.301);
+}
