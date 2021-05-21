@@ -14,6 +14,7 @@
 * Updated Token Staking contract
 * Added ability to stake, unstake, redistribute
 * Implemented testing 
+* Added redistribution script
 
 
 ## Running instructions
