@@ -2,7 +2,15 @@ import React from 'react';
 import classes from './Button.module.css';
 
 const Button = (props) => {
-  console.log(props.buttonState);
+
+
+
+  const onStakeClick = () => {
+    console.log('boom1');
+  };
+  const onUnStakeClick = () => {
+    console.log('boom2');
+  };
 
   return (
     <>
@@ -12,7 +20,7 @@ const Button = (props) => {
             ? classes.stakeButton
             : classes.unstakeButton
         }
-        onClick={props.buttonState === 'stake' ? props.stake : props.unstake}
+        onClick={props.buttonState === 'stake' ? onStakeClick : onUnStakeClick}
       >
         {props.children}
       </button>
