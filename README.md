@@ -18,6 +18,9 @@
 
 * Injected web3 and metamask
 * Ability to detect if metamask installed, logged, locked
+* Added skeletons for totalStaked, myStake, 
+* Added skeletons for Tester to Redistribute rewards and claim test tokens
+
 
 
 ## Running instructions

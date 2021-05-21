@@ -6,6 +6,11 @@
     height: 3em;
     width: 7em;
   }
+  .stakeButton:hover {
+    background-color: #2675cf;
+
+  }
+
   
   .unstakeButton {
     background-color: #224374;
@@ -14,4 +19,9 @@
     border-radius: 0.5em;
     height: 3em;
     width: 7em;
+  }
+
+  .unstakeButton:hover {
+    background-color: #1c375f;
+
   }

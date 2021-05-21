@@ -6,6 +6,8 @@ import Button from './components/Button';
 const App = () => {
   const [account, setAccount] = useState('Connecting to Metamask..');
   const [inputValue, setInputValue] = useState('');
+  const [totalStaked, setTotalStaked] = useState(400);
+  const [myStake, setMyStake] = useState(100);
 
   useEffect(() => {
     //connecting to ethereum blockchain
@@ -58,12 +60,21 @@ const App = () => {
         <Button buttonState={'stake'} stake={stakeHandler}>
           Stake
         </Button>
-        &nbsp;
+        &nbsp;  &nbsp;
         <Button buttonState={'unstake'} unstake={unStakeHandler}>
           Unstake
         </Button>
+        <div className={classes.totals}>
+          <h4>Total Staked (by all users): {totalStaked} TestToken (Tst) </h4>
+          <h5>My Stake: {myStake} TestToken (Tst) </h5>
+        </div>
+        <div className={classes.for_testing}>
+          <p>FOR TESTING PURPOSE ONLY</p>
+          <button>Claim for 1000 Tst (User)</button>
+          &nbsp;  &nbsp;
+          <button>Redistribute rewards (Admin)</button>
+        </div>
       </div>
-      <div></div>
     </div>
   );
 };
