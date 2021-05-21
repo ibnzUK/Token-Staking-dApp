@@ -87,3 +87,16 @@ background-color: rgba(255, 255, 255, 0);
 .for_testing button:hover {
   background-color: rgba(255, 255, 255, 0.068);
 }
+
+.curtain { 
+  background-color: rgba(0, 0, 0, 0.466);
+ position: static;
+ height: 99em;
+ width: auto;
+ grid-column-start: 1;
+ grid-column-end: 6;
+ z-index: 1;
+ filter: blur(8px);
+ -webkit-backdrop-filter: blur(1.5em);
+  backdrop-filter: blur(1.5em);
+}

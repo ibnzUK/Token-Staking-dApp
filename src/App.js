@@ -5,9 +5,13 @@ import Button from './components/Button';
 
 const App = () => {
   const [account, setAccount] = useState('Connecting to Metamask..');
+
+  const [testTokenContract, setTestTokenContract] = useState('');
+  const [tokenStakingContract, setTokenStakingContract] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [totalStaked, setTotalStaked] = useState(400);
   const [myStake, setMyStake] = useState(100);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     //connecting to ethereum blockchain
@@ -46,6 +50,11 @@ const App = () => {
 
   return (
     <div className={classes.Grid}>
+      {loader ? <div className={classes.curtain} onClick={() => {setLoader(false)}}></div> : null}
+      <div className={classes.loader}>
+      
+      </div>
+
       <div className={classes.Child}>
         <h1>Yield Farming / Token Staking dApp</h1>
         <p>{account}</p>
@@ -60,7 +69,7 @@ const App = () => {
         <Button buttonState={'stake'} stake={stakeHandler}>
           Stake
         </Button>
-        &nbsp;  &nbsp;
+        &nbsp; &nbsp;
         <Button buttonState={'unstake'} unstake={unStakeHandler}>
           Unstake
         </Button>
@@ -71,7 +80,7 @@ const App = () => {
         <div className={classes.for_testing}>
           <p>FOR TESTING PURPOSE ONLY</p>
           <button>Claim for 1000 Tst (User)</button>
-          &nbsp;  &nbsp;
+          &nbsp; &nbsp;
           <button>Redistribute rewards (Admin)</button>
         </div>
       </div>
