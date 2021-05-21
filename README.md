@@ -16,6 +16,9 @@
 * Implemented testing 
 * Added redistribution script
 
+* Injected web3 and metamask
+* Ability to detect if metamask installed, logged, locked
+
 
 ## Running instructions
 
