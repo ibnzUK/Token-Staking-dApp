@@ -21,6 +21,11 @@
 * Added skeletons for totalStaked, myStake, 
 * Added skeletons for Tester to Redistribute rewards and claim test tokens
 
+* Added ability to load contracts
+* Fetching data from from TokenStaking contract
+* Fetching balances
+
+
 
 
 ## Running instructions
