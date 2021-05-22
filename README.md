@@ -1,10 +1,12 @@
 
 # Token Staking dApp <h1>
 
+
+
 ###### Blockchain Token Staking dApp built with React, Solidity, on ethereum Ganache testnet <h6>
 
 
-
+![Preview](src/assets/screenshot.png)
 
 ## Changes
 * Added ERC20 TestToken 
@@ -24,6 +26,10 @@
 * Added ability to load contracts
 * Fetching data from from TokenStaking contract
 * Fetching balances
+* Stake, Unstake is now working
+* Redistribute rewards for (Admin only) is now working
+
+
 
 
 

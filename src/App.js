@@ -67,12 +67,12 @@ const App = () => {
         let totalStaked = await testToken.methods
           .balanceOf(temptokenStakingData.address)
           .call();
+
         convertedBalance = window.web3.utils.fromWei(
           totalStaked.toString(),
           'Ether'
         );
-        //removing initial balance 
-        convertedBalance = convertedBalance -500000;
+        //removing initial balance
 
         setTotalStaked(convertedBalance);
       } else {
@@ -136,7 +136,13 @@ const App = () => {
             setLoader(false);
             fetchDataFromBlockchain();
           });
+      })
+      .on('error', function(error) {
+        console.log('Error Code:', error.code);
+        console.log(error.message);
+        setLoader(false);
       });
+
     setLoader(false);
     setInputValue('');
   };
@@ -150,9 +156,32 @@ const App = () => {
       .on('transactionHash', (hash) => {
         setLoader(false);
         fetchDataFromBlockchain();
+      })
+      .on('error', function(error) {
+        console.log('Error Code:', error.code);
+        console.log(error.message);
+        setLoader(false);
       });
 
     setInputValue('');
+  };
+
+  const redistributeRewards = async () => {
+    setLoader(true);
+    // let convertToWei = window.web3.utils.toWei(inputValue, 'Ether')
+    tokenStakingContract.methods
+      .redistributeRewards()
+      .send({ from: account })
+
+      .on('transactionHash', (hash) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('error', function(error) {
+        console.log('Error Code:', error.code);
+        console.log(error.code);
+        setLoader(false);
+      });
   };
 
   return (
@@ -163,6 +192,7 @@ const App = () => {
       <div className={classes.Child}>
         <h1>Yield Farming / Token Staking dApp</h1>
         <p>{account}</p>
+        <h3>0.1% Daily Earnings</h3>
         <div className={classes.inputDiv}>
           <input
             className={classes.input}
@@ -180,20 +210,24 @@ const App = () => {
         </Button>
         <div className={classes.totals}>
           <h4>Total Staked (by all users): {totalStaked} TestToken (Tst) </h4>
+          <div>
+            -
+          </div>
           <h5>My Stake: {myStake} TestToken (Tst) </h5>
+          <h5>My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst) </h5>
           <h5>My balance: {userBalance} TestToken (Tst) </h5>
         </div>
         <div className={classes.for_testing}>
           <p>FOR TESTING PURPOSE ONLY</p>
           <button>Claim for 1000 Tst (User)</button>
           &nbsp; &nbsp;
-          <button>Redistribute rewards (Admin)</button>
+          <button onClick={redistributeRewards}>
+            Redistribute rewards (Admin)
+          </button>
           <div className={classes.network}>
             <p>
-              Selected Network:{' '}
-              <b>
-                {network.name} id:{network.id}
-              </b>
+              Selected Network: <b>{network.name}</b>
+              &nbsp; id: <b>{network.id}</b>
             </p>
           </div>
         </div>
