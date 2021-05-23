@@ -7,6 +7,7 @@
   height: 3em;
   width: 15em;
   margin-top: 1em;
+  cursor: pointer;
   }
   .stakeButton:hover {
     background-color: #2675cf;
@@ -22,6 +23,7 @@
     border-radius: 0.5em;
     height: 3em;
     width: 15em;
+    cursor: pointer;
   }
 
   .unstakeButton:hover {

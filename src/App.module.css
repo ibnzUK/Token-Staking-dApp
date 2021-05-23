@@ -37,6 +37,7 @@
   height: 5em;
 
   align-items: center;
+
 }
 
 .input {
@@ -45,6 +46,7 @@
   border-radius: 0.5em;
   border: none;
   text-align: center;
+
 
 }
 input:focus {
@@ -59,7 +61,8 @@ input:focus {
 }
 
 .for_testing {
-  margin-top: 13em;
+  margin-top: 11em;
+  padding-top: 1em;
   background-color: rgba(95, 158, 160, 0.034);
   height: 24em;
   border-radius: 0 0 2em 2em;
@@ -78,10 +81,15 @@ input:focus {
   border-radius: 0.5em;
   height: 5em;
   width: 15em;
+  cursor: pointer;
 }
 
 .for_testing button:hover {
   background-color: rgba(255, 255, 255, 0.068);
+}
+
+.goMax {
+  cursor: pointer;
 }
 
 .curtain {

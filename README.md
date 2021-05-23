@@ -32,11 +32,13 @@
 - [x] Implemented totalstaked
 - [x] Implemented ability to claim test token(Tst) (FOR TESTIN PURPOSE ONLY)
 - [x] Added amount type validity check
+- [x] Add ability for user to stake max 
 * 
-- [ ] Add ability for user to stake max 
+- [ ] Split components in to smaller
 - [ ] Validate contracts
 - [ ] Deploy on Ropsten
 - [ ] Add different Staking pools
+- [ ] Add clear running description
 
 
 

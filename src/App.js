@@ -217,6 +217,10 @@ const App = () => {
       });
   };
 
+  const goMax = () => {
+    setInputValue(userBalance);
+  };
+
   return (
     <div className={classes.Grid}>
       {loader ? <div className={classes.curtain}></div> : null}
@@ -227,6 +231,7 @@ const App = () => {
         <p>{account}</p>
         <h3>36.5% (APY) - 0.1% Daily Earnings</h3>
         <div className={classes.inputDiv}>
+       
           <input
             className={classes.input}
             type="number"
@@ -235,6 +240,7 @@ const App = () => {
             onChange={inputChangeHandler}
             value={inputValue}
           ></input>
+          
         </div>
         <Button buttonState={'stake'} stake={stakeHandler}>
           Stake
@@ -251,7 +257,7 @@ const App = () => {
           <h5>
             My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst){' '}
           </h5>
-          <h5>My balance: {userBalance} TestToken (Tst) </h5>
+          <h5 onClick={goMax} className={classes.goMax} >My balance: {userBalance} TestToken (Tst) </h5>
         </div>
         <div className={classes.for_testing}>
           <p>FOR TESTING PURPOSE ONLY</p>
