@@ -102,19 +102,13 @@ const App = () => {
         );
         setMyStake(convertedBalance);
 
-
         //checking totalStaked
-        let tempTotalStaked = await tokenStaking.methods
-        .totalStaked()
-        .call();
+        let tempTotalStaked = await tokenStaking.methods.totalStaked().call();
         convertedBalance = window.web3.utils.fromWei(
           tempTotalStaked.toString(),
           'Ether'
         );
         setTotalStaked(convertedBalance);
-
-
-
       } else {
         window.alert(
           'TokenStaking contract is not deployed on this network, please change to testnet'
@@ -137,29 +131,37 @@ const App = () => {
   };
 
   const stakeHandler = () => {
-    setLoader(true);
-    let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
-    //aproving tokens for spending
-    testTokenContract.methods
-      .approve(tokenStakingContract._address, convertToWei)
-      .send({ from: account })
-      .on('transactionHash', (hash) => {
-        tokenStakingContract.methods
-          .stakeTokens(convertToWei)
+    if (inputValue < 0) {
+    
+      setInputValue('');
+    } else {
+     
+      
+
+        setLoader(true);
+        let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
+        //aproving tokens for spending
+        testTokenContract.methods
+          .approve(tokenStakingContract._address, convertToWei)
           .send({ from: account })
           .on('transactionHash', (hash) => {
+            tokenStakingContract.methods
+              .stakeTokens(convertToWei)
+              .send({ from: account })
+              .on('transactionHash', (hash) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              });
+          })
+          .on('error', function(error) {
+            console.log('Error Code:', error.code);
+            console.log(error.message);
             setLoader(false);
-            fetchDataFromBlockchain();
           });
-      })
-      .on('error', function(error) {
-        console.log('Error Code:', error.code);
-        console.log(error.message);
-        setLoader(false);
-      });
 
-    setLoader(false);
-    setInputValue('');
+        setLoader(false);
+        setInputValue('');
+    }
   };
 
   const unStakeHandler = () => {
@@ -215,7 +217,6 @@ const App = () => {
       });
   };
 
-
   return (
     <div className={classes.Grid}>
       {loader ? <div className={classes.curtain}></div> : null}
@@ -224,11 +225,13 @@ const App = () => {
       <div className={classes.Child}>
         <h1>Yield Farming / Token Staking dApp</h1>
         <p>{account}</p>
-        <h3>0.1% Daily Earnings</h3>
+        <h3>36.5% (APY) - 0.1% Daily Earnings</h3>
         <div className={classes.inputDiv}>
           <input
             className={classes.input}
-            type="text"
+            type="number"
+            min="0"
+            step="1"
             onChange={inputChangeHandler}
             value={inputValue}
           ></input>
@@ -238,11 +241,11 @@ const App = () => {
         </Button>
         &nbsp; &nbsp;
         <Button buttonState={'unstake'} unstake={unStakeHandler}>
-          Unstake
+          Unstake All
         </Button>
         <div className={classes.totals}>
           <h4>Total Staked (by all users): {totalStaked} TestToken (Tst) </h4>
-    
+
           <div>-</div>
           <h5>My Stake: {myStake} TestToken (Tst) </h5>
           <h5>
