@@ -198,6 +198,23 @@ const App = () => {
         setLoader(false);
       });
   };
+  const claimTst = async () => {
+    setLoader(true);
+
+    tokenStakingContract.methods
+      .claimTst()
+      .send({ from: account })
+      .on('transactionHash', (hash) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('error', function(error) {
+        console.log('Error Code:', error.code);
+        console.log(error.code);
+        setLoader(false);
+      });
+  };
+
 
   return (
     <div className={classes.Grid}>
@@ -235,7 +252,7 @@ const App = () => {
         </div>
         <div className={classes.for_testing}>
           <p>FOR TESTING PURPOSE ONLY</p>
-          <button>Claim for 1000 Tst (User)</button>
+          <button onClick={claimTst}>Claim for 1000 Tst (User)</button>
           &nbsp; &nbsp;
           <button onClick={redistributeRewards}>
             Redistribute rewards (Admin)

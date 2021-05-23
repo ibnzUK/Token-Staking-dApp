@@ -30,6 +30,7 @@
 * Redistribute rewards for (Admin only) is now working
 
 * Implemented totalstaked
+* Implemented ability to claim test token(Tst) (FOR TESTIN PURPOSE ONLY)
 
 
 
@@ -50,26 +51,28 @@
 testing output
  ``` Contract: TokenStaking
     TestToken deployment
-      ✓ token deployed and has a name (276ms)
+      ✓ token deployed and has a name (225ms)
     TokenStaking deployment
-      ✓ staking contract deployed and has a name (129ms)
-      ✓ staking contract has 500k TestTokens tokens inside (127ms)
+      ✓ staking contract deployed and has a name (146ms)
+      ✓ staking contract has 500k TestTokens tokens inside (158ms)
     TokenStaking stakeTokens function
-      ✓ users able to deposit (121ms)
-      ✓ checking total staked before any stakes (125ms)
-      ✓ aproving tokens, staking tokens, checking balance (1000ms)
-      ✓ checking contract balance after staking (110ms)
-      ✓ checking user balance inside contract (191ms)
-      ✓ checking total staked (189ms)
-      ✓ testing if user is staking at the moment (149ms)
-      ✓ testing if user has staked (144ms)
+      ✓ users able to deposit (151ms)
+      ✓ checking total staked before any stakes (157ms)
+      ✓ aproving tokens, staking tokens, checking balance (1001ms)
+      ✓ checking contract balance after staking (187ms)
+      ✓ checking user balance inside contract (158ms)
+      ✓ checking total staked (126ms)
+      ✓ testing if user is staking at the moment (158ms)
+      ✓ testing if user has staked (186ms)
     TokenStaking redistributeRewards function
-      ✓ checking who can do redistribution (536ms)
-      ✓ checking TokenStaking balance (157ms)
-      ✓ checking user balance (115ms)
+      ✓ checking who can do redistribution (571ms)
+      ✓ checking TokenStaking balance (142ms)
+      ✓ checking user balance (157ms)
     TokenStaking unstakeTokens function
-      ✓ checking users balance (485ms)
-      ✓ checking total staked (155ms)
+      ✓ checking users balance (578ms)
+      ✓ checking total staked (174ms)
+    Claim Tst
+      ✓ trying to obtain test token (390ms)
 ```      
 
 

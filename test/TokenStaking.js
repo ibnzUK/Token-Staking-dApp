@@ -201,6 +201,23 @@ contract('TokenStaking', ([creator, user]) => {
     //   assert.equal(result, 1, 'expecting 1 ');
     // });
   });
+
+  describe('Claim Tst', async () => {
+    let result;
+    // New test
+    it('trying to obtain test token', async () => {
+      await tokenStaking.claimTst({from: user});
+   
+      result = await testToken.balanceOf(user);
+      assert.equal(
+        result.toString(),
+        tokenCorvert('2001'),
+        '1001 + 1000'
+      );
+
+
+    });
+  });
 });
 
 //to run test - truffle test

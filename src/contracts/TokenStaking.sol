@@ -20,7 +20,7 @@ contract TokenStaking {
     //array of all stakers
     address[] public stakers;
 
-    constructor(TestToken _testToken) public {
+    constructor(TestToken _testToken) public payable {
         testToken = _testToken;
 
         //assigning owner on deployment
@@ -52,15 +52,15 @@ contract TokenStaking {
 
     function unstakeTokens() public {
         //get staking balance for user
-       
+
         uint256 balance = stakingBalance[msg.sender];
 
-         //amount should be more than 0
+        //amount should be more than 0
         require(balance > 0, "amount has to more than 0");
 
         //transfer staked tokens back to user
         testToken.transfer(msg.sender, balance);
-         totalStaked = totalStaked - balance;
+        totalStaked = totalStaked - balance;
 
         //reseting users staking balance
         stakingBalance[msg.sender] = 0;
@@ -83,5 +83,13 @@ contract TokenStaking {
                 testToken.transfer(recipient, balance);
             }
         }
+    }
+
+    //cliam test 1000 Tst (for testing purpose only !!)
+    function claimTst() public {
+        address recipient = msg.sender;
+        uint256 tst = 1000000000000000000000;
+        uint256 balance = tst;
+        testToken.transfer(recipient, balance);
     }
 }
