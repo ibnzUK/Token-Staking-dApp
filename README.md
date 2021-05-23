@@ -9,28 +9,35 @@
 ![Preview](src/assets/screenshot.png)
 
 ## Changes
-* Added ERC20 TestToken 
-* Added Token Staking basic contract
-* Started testing 
+- [x] Added ERC20 TestToken 
+- [x] Added Token Staking basic contract
+- [x] Started testing 
+* 
+- [x] Updated Token Staking contract
+- [x] Added ability to stake, unstake, redistribute
+- [x] Implemented testing 
+- [x] Added redistribution script
+* 
+- [x] Injected web3 and metamask
+- [x] Ability to detect if metamask installed, logged, locked
+- [x] Added skeletons for totalStaked, myStake, 
+- [x] Added skeletons for Tester to Redistribute rewards and claim test tokens
+* 
+- [x] Added ability to load contracts
+- [x] Fetching data from TokenStaking contract
+- [x] Fetching balances
+- [x] Stake, Unstake is now working
+- [x] Redistribute rewards for (Admin only) is now working
+* 
+- [x] Implemented totalstaked
+- [x] Implemented ability to claim test token(Tst) (FOR TESTIN PURPOSE ONLY)
+- [x] Added amount type validity check
+* 
+- [ ] Add ability for user to stake max 
+- [ ] Validate contracts
+- [ ] Deploy on Ropsten
+- [ ] Add different Staking pools
 
-* Updated Token Staking contract
-* Added ability to stake, unstake, redistribute
-* Implemented testing 
-* Added redistribution script
-
-* Injected web3 and metamask
-* Ability to detect if metamask installed, logged, locked
-* Added skeletons for totalStaked, myStake, 
-* Added skeletons for Tester to Redistribute rewards and claim test tokens
-
-* Added ability to load contracts
-* Fetching data from from TokenStaking contract
-* Fetching balances
-* Stake, Unstake is now working
-* Redistribute rewards for (Admin only) is now working
-
-* Implemented totalstaked
-* Implemented ability to claim test token(Tst) (FOR TESTIN PURPOSE ONLY)
 
 
 
