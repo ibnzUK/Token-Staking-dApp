@@ -9,6 +9,23 @@ module.exports = {
       network_id: "*" // Match any network id
     },
   },
+
+  // networks: {
+  //   ropsten: {
+  //     provider: function() {
+  //       return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/YOUR-PROJECT-ID");
+  //     },
+  //     network_id: '3',
+  //   },
+  //   test: {
+  //     provider: function() {
+  //       return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/");
+  //     },
+  //     network_id: '*',
+  //   },
+  // },
+
+
   contracts_directory: './src/contracts/',
   contracts_build_directory: './src/abis/',
   compilers: {

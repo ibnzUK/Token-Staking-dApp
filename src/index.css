@@ -8,6 +8,6 @@ html {
 
 body {
   margin: 0;
-  background-color: #061121;
+  background: linear-gradient(to bottom, #0a1b35 0%, #061121 100%);
   color: white;
 }
