@@ -29,6 +29,9 @@
 * Stake, Unstake is now working
 * Redistribute rewards for (Admin only) is now working
 
+* Implemented totalstaked
+
+
 
 
 
@@ -47,23 +50,26 @@
 testing output
  ``` Contract: TokenStaking
     TestToken deployment
-      ✓ token deployed and has a name (143ms)
+      ✓ token deployed and has a name (276ms)
     TokenStaking deployment
-      ✓ staking contract deployed and has a name (85ms)
-      ✓ staking contract has 500k TestTokens tokens inside (143ms)
+      ✓ staking contract deployed and has a name (129ms)
+      ✓ staking contract has 500k TestTokens tokens inside (127ms)
     TokenStaking stakeTokens function
-      ✓ investors able to deposit (141ms)
-      ✓ aproving tokens, staking tokens, checking balance (1069ms)
-      ✓ checking contract balance after staking (141ms)
-      ✓ checking user balance inside contract (119ms)
-      ✓ testing if user is staking at the moment (88ms)
-      ✓ testing if user has staked (141ms)
+      ✓ users able to deposit (121ms)
+      ✓ checking total staked before any stakes (125ms)
+      ✓ aproving tokens, staking tokens, checking balance (1000ms)
+      ✓ checking contract balance after staking (110ms)
+      ✓ checking user balance inside contract (191ms)
+      ✓ checking total staked (189ms)
+      ✓ testing if user is staking at the moment (149ms)
+      ✓ testing if user has staked (144ms)
     TokenStaking redistributeRewards function
-      ✓ checking who can do redistribution (646ms)
-      ✓ checking TokenStaking balance (190ms)
-      ✓ checking user balance (110ms)
+      ✓ checking who can do redistribution (536ms)
+      ✓ checking TokenStaking balance (157ms)
+      ✓ checking user balance (115ms)
     TokenStaking unstakeTokens function
-      ✓ checking users balance (445ms)
+      ✓ checking users balance (485ms)
+      ✓ 5.2 checking total staked (155ms)
 ```      
 
 

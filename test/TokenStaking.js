@@ -58,16 +58,26 @@ contract('TokenStaking', ([creator, user]) => {
   // 3.1 Testing stakeTokens function
   describe('TokenStaking stakeTokens function', async () => {
     let result;
-    it('investors able to deposit', async () => {
+    it('users able to deposit', async () => {
       result = await testToken.balanceOf(user);
       assert.equal(
         result.toString(),
         tokenCorvert('1000'),
-        'Investor balance is correct before staking'
+        'users balance is correct before staking'
       );
     });
 
-    // 3.2 Testing stakeTokens function
+    //3.2 checking TokenStaking total banalce
+    it('checking total staked before any stakes', async () => {
+      result = await tokenStaking.totalStaked();
+      assert.equal(
+        result.toString(),
+        tokenCorvert('0'),
+        'total staked should be 0'
+      );
+    });
+
+    // 3.3 Testing stakeTokens function
     it('aproving tokens, staking tokens, checking balance', async () => {
       //first aprove tokens to be staked
       await testToken.approve(tokenStaking.address, tokenCorvert('1000'), {
@@ -85,7 +95,7 @@ contract('TokenStaking', ([creator, user]) => {
       );
     });
 
-    //3.2 checking balance of TokenStaking contract should be 500k +1000
+    //3.4 checking balance of TokenStaking contract should be 500k +1000
     it('checking contract balance after staking', async () => {
       result = await testToken.balanceOf(tokenStaking.address);
       assert.equal(
@@ -95,7 +105,7 @@ contract('TokenStaking', ([creator, user]) => {
       );
     });
 
-    //3.3 checking TokenStaking contract users balance
+    //3.5 checking TokenStaking contract users balance
     it('checking user balance inside contract', async () => {
       result = await tokenStaking.stakingBalance(user);
       assert.equal(
@@ -105,13 +115,23 @@ contract('TokenStaking', ([creator, user]) => {
       );
     });
 
-    //3.4 checking isStaking function to see if user is staking
+    //3.6 checking TokenStaking totalstaked balance
+    it('checking total staked', async () => {
+      result = await tokenStaking.totalStaked();
+      assert.equal(
+        result.toString(),
+        tokenCorvert('1000'),
+        'total staked should be 1000'
+      );
+    });
+
+    //3.7 checking isStaking function to see if user is staking
     it('testing if user is staking at the moment', async () => {
       result = await tokenStaking.isStakingAtm(user);
       assert.equal(result.toString(), 'true', 'user is currently staking');
     });
 
-    //3.5 checking hasStaked function to see if user ever staked
+    //3.8 checking hasStaked function to see if user ever staked
     it('testing if user has staked', async () => {
       result = await tokenStaking.hasStaked(user);
       assert.equal(result.toString(), 'true', 'user has staked');
@@ -162,6 +182,16 @@ contract('TokenStaking', ([creator, user]) => {
         result.toString(),
         tokenCorvert('1001'),
         'User balance after unstaking'
+      );
+    });
+
+    //5.2 checking TokenStaking total staked balance
+    it('5.2 checking total staked', async () => {
+      result = await tokenStaking.totalStaked();
+      assert.equal(
+        result.toString(),
+        tokenCorvert('0'),
+        'total staked should be 0'
       );
     });
 

@@ -8,6 +8,8 @@ contract TokenStaking {
 
     //declaring owner state variable
     address public owner;
+    //declaring total staked
+    uint256 public totalStaked;
 
     mapping(address => uint256) public stakingBalance;
     //mapping list of users who ever staked
@@ -33,6 +35,7 @@ contract TokenStaking {
 
         //User adding test tokens
         testToken.transferFrom(msg.sender, address(this), _amount);
+        totalStaked = totalStaked + _amount;
 
         //updating staking balance for user by mapping
         stakingBalance[msg.sender] = stakingBalance[msg.sender] + _amount;
@@ -57,6 +60,7 @@ contract TokenStaking {
 
         //transfer staked tokens back to user
         testToken.transfer(msg.sender, balance);
+         totalStaked = totalStaked - balance;
 
         //reseting users staking balance
         stakingBalance[msg.sender] = 0;
