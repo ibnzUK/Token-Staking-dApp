@@ -186,7 +186,7 @@ contract('TokenStaking', ([creator, user]) => {
     });
 
     //5.2 checking TokenStaking total staked balance
-    it('5.2 checking total staked', async () => {
+    it('checking total staked', async () => {
       result = await tokenStaking.totalStaked();
       assert.equal(
         result.toString(),
@@ -202,3 +202,5 @@ contract('TokenStaking', ([creator, user]) => {
     // });
   });
 });
+
+//to run test - truffle test

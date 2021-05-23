@@ -11,6 +11,7 @@ const App = () => {
   const [testTokenContract, setTestTokenContract] = useState('');
   const [tokenStakingContract, setTokenStakingContract] = useState('');
   const [inputValue, setInputValue] = useState('');
+  const [contractBalance, setContractBalance] = useState('');
   const [totalStaked, setTotalStaked] = useState('');
   const [myStake, setMyStake] = useState('');
   const [loader, setLoader] = useState(true);
@@ -63,9 +64,9 @@ const App = () => {
 
         //fetching contract balance
         //updating total staked balance
-        const temptokenStakingData = TokenStaking.networks[networkId];
+        const tempBalance = TokenStaking.networks[networkId];
         let totalStaked = await testToken.methods
-          .balanceOf(temptokenStakingData.address)
+          .balanceOf(tempBalance.address)
           .call();
 
         convertedBalance = window.web3.utils.fromWei(
@@ -73,8 +74,7 @@ const App = () => {
           'Ether'
         );
         //removing initial balance
-
-        setTotalStaked(convertedBalance);
+        setContractBalance(convertedBalance);
       } else {
         window.alert(
           'TestToken contract is not deployed on this network, please change to testnet'
@@ -95,11 +95,26 @@ const App = () => {
         let myStake = await tokenStaking.methods
           .stakingBalance(accounts[0])
           .call();
+
         let convertedBalance = window.web3.utils.fromWei(
           myStake.toString(),
           'Ether'
         );
         setMyStake(convertedBalance);
+
+
+        //checking totalStaked
+        let tempTotalStaked = await tokenStaking.methods
+        .totalStaked()
+        .call();
+        convertedBalance = window.web3.utils.fromWei(
+          tempTotalStaked.toString(),
+          'Ether'
+        );
+        setTotalStaked(convertedBalance);
+
+
+
       } else {
         window.alert(
           'TokenStaking contract is not deployed on this network, please change to testnet'
@@ -210,11 +225,12 @@ const App = () => {
         </Button>
         <div className={classes.totals}>
           <h4>Total Staked (by all users): {totalStaked} TestToken (Tst) </h4>
-          <div>
-            -
-          </div>
+    
+          <div>-</div>
           <h5>My Stake: {myStake} TestToken (Tst) </h5>
-          <h5>My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst) </h5>
+          <h5>
+            My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst){' '}
+          </h5>
           <h5>My balance: {userBalance} TestToken (Tst) </h5>
         </div>
         <div className={classes.for_testing}>
@@ -229,6 +245,7 @@ const App = () => {
               Selected Network: <b>{network.name}</b>
               &nbsp; id: <b>{network.id}</b>
             </p>
+            <p>Contract Balance: {contractBalance} TestToken (Tst) </p>
           </div>
         </div>
       </div>

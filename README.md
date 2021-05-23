@@ -69,7 +69,7 @@ testing output
       ✓ checking user balance (115ms)
     TokenStaking unstakeTokens function
       ✓ checking users balance (485ms)
-      ✓ 5.2 checking total staked (155ms)
+      ✓ checking total staked (155ms)
 ```      
 
 
