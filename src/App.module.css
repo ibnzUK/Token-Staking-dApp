@@ -30,6 +30,9 @@
   -webkit-box-shadow: 0px 0px 50px 50px rgba(0, 0, 0, 0.44);
   box-shadow: 0px 0px 800px 20px rgba(19, 75, 99, 0.44);
 }
+.Child h1 {
+  margin-top: 1.2em;
+}
 
 /* ......... */
 .inputDiv {

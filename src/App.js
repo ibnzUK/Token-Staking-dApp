@@ -252,7 +252,7 @@ const App = () => {
         <div className={classes.totals}>
           <h4>Total Staked (by all users): {totalStaked} TestToken (Tst) </h4>
 
-          <div>-</div>
+          <div>&nbsp;</div>
           <h5>My Stake: {myStake} TestToken (Tst) </h5>
           <h5>
             My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst){' '}
