@@ -124,43 +124,37 @@ const App = () => {
   };
 
   const inputChangeHandler = (event) => {
-    // todo !!!!!!!!!!!!!!!!    todo !!!!!!!!!!!!!!!! todo !!!!!!!!!!!!!!!! todo !!!!!!!!!!!!!!!! todo !!!!!!!!!!!!!!!! todo !!!!!!!!!!!!!!!! todo !!!!!!!!!!!!!!!!
-    //need to check if is number and 0 >
     event.preventDefault();
     setInputValue(event.target.value);
   };
 
   const stakeHandler = () => {
-    if (inputValue < 0) {
-    
+    if (!inputValue || inputValue === '0' || inputValue < 0) {
       setInputValue('');
     } else {
-     
-      
+      setLoader(true);
+      let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
+      //aproving tokens for spending
+      testTokenContract.methods
+        .approve(tokenStakingContract._address, convertToWei)
+        .send({ from: account })
+        .on('transactionHash', (hash) => {
+          tokenStakingContract.methods
+            .stakeTokens(convertToWei)
+            .send({ from: account })
+            .on('transactionHash', (hash) => {
+              setLoader(false);
+              fetchDataFromBlockchain();
+            });
+        })
+        .on('error', function(error) {
+          console.log('Error Code:', error.code);
+          console.log(error.message);
+          setLoader(false);
+        });
 
-        setLoader(true);
-        let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
-        //aproving tokens for spending
-        testTokenContract.methods
-          .approve(tokenStakingContract._address, convertToWei)
-          .send({ from: account })
-          .on('transactionHash', (hash) => {
-            tokenStakingContract.methods
-              .stakeTokens(convertToWei)
-              .send({ from: account })
-              .on('transactionHash', (hash) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              });
-          })
-          .on('error', function(error) {
-            console.log('Error Code:', error.code);
-            console.log(error.message);
-            setLoader(false);
-          });
-
-        setLoader(false);
-        setInputValue('');
+      setLoader(false);
+      setInputValue('');
     }
   };
 
@@ -185,7 +179,6 @@ const App = () => {
 
   const redistributeRewards = async () => {
     setLoader(true);
-    // let convertToWei = window.web3.utils.toWei(inputValue, 'Ether')
     tokenStakingContract.methods
       .redistributeRewards()
       .send({ from: account })
@@ -231,7 +224,6 @@ const App = () => {
         <p>{account}</p>
         <h3>36.5% (APY) - 0.1% Daily Earnings</h3>
         <div className={classes.inputDiv}>
-       
           <input
             className={classes.input}
             type="number"
@@ -240,7 +232,6 @@ const App = () => {
             onChange={inputChangeHandler}
             value={inputValue}
           ></input>
-          
         </div>
         <Button buttonState={'stake'} stake={stakeHandler}>
           Stake
@@ -257,7 +248,9 @@ const App = () => {
           <h5>
             My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst){' '}
           </h5>
-          <h5 onClick={goMax} className={classes.goMax} >My balance: {userBalance} TestToken (Tst) </h5>
+          <h5 onClick={goMax} className={classes.goMax}>
+            My balance: {userBalance} TestToken (Tst){' '}
+          </h5>
         </div>
         <div className={classes.for_testing}>
           <p>FOR TESTING PURPOSE ONLY</p>
