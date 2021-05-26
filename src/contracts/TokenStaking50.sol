@@ -2,8 +2,8 @@ pragma solidity ^0.5.0;
 
 import "./TestToken.sol";
 
-contract TokenStaking {
-    string public name = "Yield Farming / Token dApp";
+contract TokenStaking50 {
+    string public name = "Yield Farming / Token dApp - 50";
     TestToken public testToken;
 
     //declaring owner state variable
@@ -77,13 +77,12 @@ contract TokenStaking {
         //doing drop for all addresses
         for (uint256 i = 0; i < stakers.length; i++) {
             address recipient = stakers[i];
-        // setting daily apy 0.100 %
-            uint256 apy = 100;
+        // setting daily apy 0.137 %, yearly 50%
+            uint256 apy = 137;
             uint256 percentage = 100000;
         //calculating daily apy for user
             uint256 balance = stakingBalance[recipient] * apy;
             balance = balance / percentage;
-
             if (balance > 0) {
                 testToken.transfer(recipient, balance);
             }

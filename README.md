@@ -35,9 +35,11 @@
 - [x] Add ability for user to stake max 
 * 
 - [x] Added ability to listen to triggers .on transactionHash
+- [x] Data automatically fetched after confirmation received
 - [x] Added HDWallet provider and Infura setup
 - [x] Deployed on ropsten and rinkeby
-
+* 
+- [ ] Add loader, indicator
 - [ ] Split components in to smaller
 - [ ] Validate contracts
 - [ ] Add different Staking pools

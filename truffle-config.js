@@ -1,7 +1,6 @@
 require('babel-register');
 require('babel-polyfill');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const infuraKey = 'a696e0c972eb4c0c8394840bc33b7df7';
 const fs = require('fs');
 const mnemonic = fs.readFileSync('.secret').toString().trim();
 const infuraKey = fs.readFileSync('.infuraKey').toString().trim();
