@@ -34,9 +34,12 @@
 - [x] Added amount type validity check
 - [x] Add ability for user to stake max 
 * 
+- [x] Added ability to listen to triggers .on transactionHash
+- [x] Added HDWallet provider and Infura setup
+- [x] Deployed on ropsten and rinkeby
+
 - [ ] Split components in to smaller
 - [ ] Validate contracts
-- [ ] Deploy on Ropsten
 - [ ] Add different Staking pools
 - [ ] Add clear running description
 
@@ -87,4 +90,10 @@ testing output
 
 for private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
 
+Smart Contract Address on Test Net
+Ropsten: 0xABa3314745b3eBCF91Eb4a61f695fc55B81119eF
+Rinkeby: 0xB18D4a5D7bc8450A957f7AD1675D5e606d4482B0
 
+Token Contract Address on Test Net
+Ropsten: 0xC8B88a647b0c3D2CCce7bD561C8285c1FaA79b15
+Rinkeby: 0xEc8E737d460B5DbD62E9B3062b6e7E472FCe2B06

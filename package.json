@@ -35,5 +35,8 @@
     "not op_mini all"
   ],
   "main": "truffle-config.js",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.4.0"
+  }
 }

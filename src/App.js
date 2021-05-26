@@ -139,10 +139,20 @@ const App = () => {
         .approve(tokenStakingContract._address, convertToWei)
         .send({ from: account })
         .on('transactionHash', (hash) => {
+          console.log('boom1');
           tokenStakingContract.methods
             .stakeTokens(convertToWei)
             .send({ from: account })
             .on('transactionHash', (hash) => {
+              setLoader(false);
+              fetchDataFromBlockchain();
+              console.log('boom2');
+            })
+            .on('receipt', (receipt) => {
+              setLoader(false);
+              fetchDataFromBlockchain();
+            })
+            .on('confirmation', (confirmationNumber, receipt) => {
               setLoader(false);
               fetchDataFromBlockchain();
             });
@@ -155,6 +165,7 @@ const App = () => {
 
       setLoader(false);
       setInputValue('');
+      console.log('boom3');
     }
   };
 
@@ -168,6 +179,15 @@ const App = () => {
         setLoader(false);
         fetchDataFromBlockchain();
       })
+      .on('receipt', (receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('confirmation', (confirmationNumber, receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+
       .on('error', function(error) {
         console.log('Error Code:', error.code);
         console.log(error.message);
@@ -187,6 +207,14 @@ const App = () => {
         setLoader(false);
         fetchDataFromBlockchain();
       })
+      .on('receipt', (receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('confirmation', (confirmationNumber, receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
       .on('error', function(error) {
         console.log('Error Code:', error.code);
         console.log(error.code);
@@ -200,6 +228,14 @@ const App = () => {
       .claimTst()
       .send({ from: account })
       .on('transactionHash', (hash) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('receipt', (receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('confirmation', (confirmationNumber, receipt) => {
         setLoader(false);
         fetchDataFromBlockchain();
       })
@@ -265,6 +301,7 @@ const App = () => {
               &nbsp; id: <b>{network.id}</b>
             </p>
             <p>Contract Balance: {contractBalance} TestToken (Tst) </p>
+            <p>adresas {tokenStakingContract._address}</p>
           </div>
         </div>
       </div>
