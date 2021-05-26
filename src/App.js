@@ -139,14 +139,12 @@ const App = () => {
         .approve(tokenStakingContract._address, convertToWei)
         .send({ from: account })
         .on('transactionHash', (hash) => {
-          console.log('boom1');
           tokenStakingContract.methods
             .stakeTokens(convertToWei)
             .send({ from: account })
             .on('transactionHash', (hash) => {
               setLoader(false);
               fetchDataFromBlockchain();
-              console.log('boom2');
             })
             .on('receipt', (receipt) => {
               setLoader(false);
@@ -165,7 +163,6 @@ const App = () => {
 
       setLoader(false);
       setInputValue('');
-      console.log('boom3');
     }
   };
 

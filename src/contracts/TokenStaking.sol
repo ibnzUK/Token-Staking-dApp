@@ -56,7 +56,7 @@ contract TokenStaking {
         uint256 balance = stakingBalance[msg.sender];
 
         //amount should be more than 0
-        require(balance > 0, "amount has to more than 0");
+        require(balance > 0, "amount has to be more than 0");
 
         //transfer staked tokens back to user
         testToken.transfer(msg.sender, balance);

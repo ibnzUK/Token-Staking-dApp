@@ -2,20 +2,26 @@ require('babel-register');
 require('babel-polyfill');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
-const mnemonic = fs.readFileSync('.secret').toString().trim();
-const infuraKey = fs.readFileSync('.infuraKey').toString().trim();
-
+const mnemonic = fs
+  .readFileSync('.secret')
+  .toString()
+  .trim();
+const infuraKey = fs
+  .readFileSync('.infuraKey')
+  .toString()
+  .trim();
 
 module.exports = {
   networks: {
     development: {
-      host: "127.0.0.1",
+      host: '127.0.0.1',
       port: 7545,
-      network_id: "*" // Match any network id
+      network_id: '*', // Match any network id
     },
-
+    
+    //ROPSTEN Test net
     ropsten: {
-      provider: function () {
+      provider: function() {
         return new HDWalletProvider(
           mnemonic,
           `https://ropsten.infura.io/v3/${infuraKey}`
@@ -25,10 +31,10 @@ module.exports = {
       gas: 4500000,
       gasPrice: 10000000000,
     },
-  
+
     //RINKEBY Test net
     rinkeby: {
-      provider: function () {
+      provider: function() {
         return new HDWalletProvider(
           mnemonic,
           `https://rinkeby.infura.io/v3/${infuraKey}`
@@ -38,12 +44,7 @@ module.exports = {
       gas: 4500000,
       gasPrice: 10000000000,
     },
-
-    
-
   },
-
-  
 
   contracts_directory: './src/contracts/',
   contracts_build_directory: './src/abis/',
@@ -51,21 +52,16 @@ module.exports = {
     solc: {
       optimizer: {
         enabled: true,
-        runs: 200
+        runs: 200,
       },
-      evmVersion: "petersburg"
-    }
-  }
-}
-
+      evmVersion: 'petersburg',
+    },
+  },
+};
 
 //truffle test
-
-
-
 
 // call console - truffle console
 // get contract - await TestToken.deployed()
 // to compile -    truffle compile
 // to deploy - truffle migrate --reset
-
