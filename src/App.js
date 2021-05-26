@@ -298,7 +298,7 @@ const App = () => {
               &nbsp; id: <b>{network.id}</b>
             </p>
             <p>Contract Balance: {contractBalance} TestToken (Tst) </p>
-            <p>adresas {tokenStakingContract._address}</p>
+            <p>Staking Contract address: {tokenStakingContract._address}</p>
           </div>
         </div>
       </div>
