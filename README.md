@@ -7,6 +7,8 @@
 
 
 ![Preview](src/assets/screenshot.png)
+- 
+![Preview](src/assets/screenshot2.png)
 
 ## Changes
 - [x] Added ERC20 TestToken 
@@ -40,10 +42,11 @@
 - [x] Deployed on ropsten and rinkeby
 * 
 - [x] Different staking pool implemented customStake/customUnstake
+- [x] Implemented ability for admin to change custom pool APY value
 * 
 - [ ] Add frontend for custom pool
+- [ ] Implement different APY Pool reward redistribution
 - [ ] Add loader, indicator
-- [ ] Add ability for admin to customise APY
 - [ ] Split components in to smaller
 - [ ] Validate contracts
 - [ ] Add different Staking pools [doing]
@@ -66,31 +69,44 @@
 ## For Testing
 * To run tests from /test/TokenStaking (truffle test)
 
-testing output
+mocha testing output
  ``` Contract: TokenStaking
     TestToken deployment
-      ✓ token deployed and has a name (225ms)
+      ✓ token deployed and has a name (209ms)
     TokenStaking deployment
-      ✓ staking contract deployed and has a name (146ms)
-      ✓ staking contract has 500k TestTokens tokens inside (158ms)
+      ✓ staking contract deployed and has a name (83ms)
+      ✓ checking default APY value (109ms)
+      ✓ checking custom APY value (146ms)
+      ✓ staking contract has 500k TestTokens tokens inside (105ms)
     TokenStaking stakeTokens function
-      ✓ users able to deposit (151ms)
-      ✓ checking total staked before any stakes (157ms)
-      ✓ aproving tokens, staking tokens, checking balance (1001ms)
-      ✓ checking contract balance after staking (187ms)
-      ✓ checking user balance inside contract (158ms)
-      ✓ checking total staked (126ms)
-      ✓ testing if user is staking at the moment (158ms)
-      ✓ testing if user has staked (186ms)
+      ✓ users balance is correct before staking (139ms)
+      ✓ checking total staked before any stakes (106ms)
+      ✓ aproving tokens, staking tokens, checking balance (1034ms)
+      ✓ checking contract balance after staking (84ms)
+      ✓ checking user balance inside contract (109ms)
+      ✓ checking total staked (81ms)
+      ✓ testing if user is staking at the moment (153ms)
+      ✓ testing if user has staked (99ms)
     TokenStaking redistributeRewards function
-      ✓ checking who can do redistribution (571ms)
-      ✓ checking TokenStaking balance (142ms)
-      ✓ checking user balance (157ms)
+      ✓ checking who can do redistribution (1259ms)
+      ✓ checking TokenStaking balance (136ms)
+      ✓ checking user balance (95ms)
     TokenStaking unstakeTokens function
-      ✓ checking users balance (578ms)
+      ✓ unstaking and checking users balance after unstake (620ms)
       ✓ checking total staked (174ms)
+    TokenStaking [custom] staking/unstaking functions
+      ✓ checking total custom staked before any stakes (189ms)
+      ✓ checking usrs balance before staking (128ms)
+      ✓ aproving tokens, staking tokens, checking balance (945ms)
+      ✓ checking custom total staked (143ms)
+      ✓ testing if user is staking at custom staking at the moment (124ms)
+      ✓ testing if user has staked at custom staking (157ms)
+      ✓ unstaking from custom staking and checking users balance  (683ms)
     Claim Tst
-      ✓ trying to obtain test token (390ms)
+      ✓ trying to obtain 1000 test token (373ms)
+    Change custom APY value
+      ✓ checking who can change APY (1069ms)
+      ✓ checking new custom APY value (172ms)
 ```      
 
 

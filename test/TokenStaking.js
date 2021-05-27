@@ -288,12 +288,34 @@ contract('TokenStaking', ([creator, user]) => {
   // Test 7
   describe('Claim Tst', async () => {
     let result;
-    // New test
+    // testing claim test token function
     it('trying to obtain 1000 test token', async () => {
       await tokenStaking.claimTst({ from: user });
 
       result = await testToken.balanceOf(user);
       assert.equal(result.toString(), tokenCorvert('3235'), '2235 + 1000');
+    });
+  });
+
+  //Test 8
+  describe('Change custom APY value', async () => {
+    let result;
+
+    //8.1 testing who can change custom APY
+    it('checking who can change APY', async () => {
+      await tokenStaking.changeAPY('200', { from: creator });
+      //testing with invalid arguments
+      await tokenStaking.changeAPY({ from: creator }).should.be.rejected;
+      await tokenStaking.changeAPY(tokenCorvert('0'), { from: creator }).should
+        .be.rejected;
+      await tokenStaking.changeAPY(tokenCorvert('200'), { from: user }).should
+        .be.rejected;
+    });
+
+    //8.2 checking New custom APY value
+    it('checking new custom APY value', async () => {
+      const value = await tokenStaking.customAPY();
+      assert.equal(value, '200', 'custom APY set to 200 (0.2% Daily)');
     });
   });
 });

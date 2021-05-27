@@ -139,9 +139,9 @@ contract TokenStaking {
     //change APY value for custom staking
     function changeAPY(uint256 _value) public {
                //only owner can issue airdrop
-        require(msg.sender == owner, "Only contract creator can redistribute"); 
-        require(_value > 0, "APY value has to be more than 0");
-        defaultAPY = _value;
+        require(msg.sender == owner, "Only contract creator can change APY"); 
+        require(_value > 0, "APY value has to be more than 0, try 100 for (0.100% daily) instead");
+        customAPY = _value;
     }
 
     //cliam test 1000 Tst (for testing purpose only !!)
