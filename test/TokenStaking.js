@@ -47,7 +47,19 @@ contract('TokenStaking', ([creator, user]) => {
       assert.equal(name, 'Yield Farming / Token dApp');
     });
 
-    // 2.2 Checking if TokenStaking contract has 500k of TestTokens
+    //2.2 checking default apy value
+    it('checking default APY value', async () => {
+      const value = await tokenStaking.defaultAPY();
+      assert.equal(value, '100', 'default APY set to 100');
+    });
+
+    //2.3 checking custom apy value
+    it('checking custom APY value', async () => {
+      const value = await tokenStaking.customAPY();
+      assert.equal(value, '137', 'custom APY set to 137');
+    });
+
+    // 2.4 Checking if TokenStaking contract has 500k of TestTokens
     it('staking contract has 500k TestTokens tokens inside', async () => {
       let balance = await testToken.balanceOf(tokenStaking.address);
       assert.equal(balance.toString(), tokenCorvert('500000'));

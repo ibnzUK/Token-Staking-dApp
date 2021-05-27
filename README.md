@@ -41,6 +41,7 @@
 * 
 - [x] Different staking pool implemented customStake/customUnstake
 * 
+- [ ] Add frontend for custom pool
 - [ ] Add loader, indicator
 - [ ] Add ability for admin to customise APY
 - [ ] Split components in to smaller
