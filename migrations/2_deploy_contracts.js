@@ -1,6 +1,5 @@
 const TestToken = artifacts.require('TestToken');
 const TokenStaking = artifacts.require('TokenStaking');
-const TokenStaking50 = artifacts.require('TokenStaking50');
 
 module.exports = async function(deployer, network, accounts) {
   //deploying TesToken
@@ -11,12 +10,6 @@ module.exports = async function(deployer, network, accounts) {
   //deploying staking contract, passing token address
   await deployer.deploy(TokenStaking, testToken.address);
   const tokenStaking = await TokenStaking.deployed();
-
-  //deploying staking contract for different APY, passing token address
-  await deployer.deploy(TokenStaking50, testToken.address);
-
-
-
 
   //transfer 500k TestToken to smart contract for rewards
   await testToken.transfer(tokenStaking.address, '500000000000000000000000');
