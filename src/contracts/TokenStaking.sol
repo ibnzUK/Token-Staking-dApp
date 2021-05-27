@@ -8,17 +8,32 @@ contract TokenStaking {
 
     //declaring owner state variable
     address public owner;
+
+    //declaring default APY (default 0.1% daily or 36.5% APY yearly)
+    uint256 public defaultAPY = 100;
+
+    //declaring APY for custom staking ( default 0.137% daily or 50% APY yearly)
+    uint256 public customAPY = 137;
+
     //declaring total staked
     uint256 public totalStaked;
+    uint256 public customTotalStaked;
 
+    //users staking balance
     mapping(address => uint256) public stakingBalance;
+    mapping(address => uint256) public customStakingBalance;
+
     //mapping list of users who ever staked
     mapping(address => bool) public hasStaked;
+    mapping(address => bool) public customHasStaked;
+
     //mapping list of users who are staking at the moment
     mapping(address => bool) public isStakingAtm;
+    mapping(address => bool) public customIsStakingAtm;
 
     //array of all stakers
     address[] public stakers;
+    address[] public customStakers;
 
     constructor(TestToken _testToken) public payable {
         testToken = _testToken;
@@ -27,7 +42,7 @@ contract TokenStaking {
         owner = msg.sender;
     }
 
-    //stake tokens
+    //stake tokens function
 
     function stakeTokens(uint256 _amount) public {
         //must be more than 0
@@ -50,6 +65,8 @@ contract TokenStaking {
         isStakingAtm[msg.sender] = true;
     }
 
+    //unstake tokens function
+
     function unstakeTokens() public {
         //get staking balance for user
 
@@ -69,6 +86,31 @@ contract TokenStaking {
         isStakingAtm[msg.sender] = false;
     }
 
+    // different APY Pool
+    function customStaking(uint256 _amount) public {
+        require(_amount > 0, "amount cannot be 0");
+        testToken.transferFrom(msg.sender, address(this), _amount);
+        customTotalStaked = customTotalStaked + _amount;
+        customStakingBalance[msg.sender] =
+            customStakingBalance[msg.sender] +
+            _amount;
+
+        if (!customHasStaked[msg.sender]) {
+            customStakers.push(msg.sender);
+        }
+        customHasStaked[msg.sender] = true;
+        customIsStakingAtm[msg.sender] = true;
+    }
+
+    function customUnstake() public {
+        uint256 balance = customStakingBalance[msg.sender];
+        require(balance > 0, "amount has to be more than 0");
+        testToken.transfer(msg.sender, balance);
+        customTotalStaked = customTotalStaked - balance;
+        customStakingBalance[msg.sender] = 0;
+        customIsStakingAtm[msg.sender] = false;
+    }
+
     //airdropp tokens
     function redistributeRewards() public {
         //only owner can issue airdrop
@@ -77,11 +119,9 @@ contract TokenStaking {
         //doing drop for all addresses
         for (uint256 i = 0; i < stakers.length; i++) {
             address recipient = stakers[i];
-        // setting daily apy 0.100 %
-            uint256 apy = 100;
             uint256 percentage = 100000;
-        //calculating daily apy for user
-            uint256 balance = stakingBalance[recipient] * apy;
+            //calculating daily apy for user
+            uint256 balance = stakingBalance[recipient] * defaultAPY;
             balance = balance / percentage;
 
             if (balance > 0) {

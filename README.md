@@ -39,10 +39,13 @@
 - [x] Added HDWallet provider and Infura setup
 - [x] Deployed on ropsten and rinkeby
 * 
+- [x] Different staking pool implemented customStake/customUnstake
+* 
 - [ ] Add loader, indicator
+- [ ] Add ability for admin to customise APY
 - [ ] Split components in to smaller
 - [ ] Validate contracts
-- [ ] Add different Staking pools
+- [ ] Add different Staking pools [doing]
 - [ ] Add clear running description
 
 
