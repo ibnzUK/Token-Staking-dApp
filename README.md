@@ -44,12 +44,12 @@
 - [x] Different staking pool implemented customStake/customUnstake
 - [x] Implemented ability for admin to change custom pool APY value
 * 
+- [x] Implemented custom reward Pool redistribution
+* 
 - [ ] Add frontend for custom pool
-- [ ] Implement different APY Pool reward redistribution
 - [ ] Add loader, indicator
 - [ ] Split components in to smaller
 - [ ] Validate contracts
-- [ ] Add different Staking pools [doing]
 - [ ] Add clear running description
 
 
@@ -72,50 +72,58 @@
 mocha testing output
  ``` Contract: TokenStaking
     TestToken deployment
-      ✓ token deployed and has a name (209ms)
+      ✓ token deployed and has a name (246ms)
     TokenStaking deployment
-      ✓ staking contract deployed and has a name (83ms)
-      ✓ checking default APY value (109ms)
-      ✓ checking custom APY value (146ms)
-      ✓ staking contract has 500k TestTokens tokens inside (105ms)
+      ✓ staking contract deployed and has a name (160ms)
+      ✓ checking default APY value (179ms)
+      ✓ checking custom APY value (128ms)
+      ✓ staking contract has 500k TestTokens tokens inside (176ms)
     TokenStaking stakeTokens function
-      ✓ users balance is correct before staking (139ms)
-      ✓ checking total staked before any stakes (106ms)
-      ✓ aproving tokens, staking tokens, checking balance (1034ms)
-      ✓ checking contract balance after staking (84ms)
-      ✓ checking user balance inside contract (109ms)
-      ✓ checking total staked (81ms)
-      ✓ testing if user is staking at the moment (153ms)
-      ✓ testing if user has staked (99ms)
+      ✓ users balance is correct before staking (126ms)
+      ✓ checking total staked before any stakes (126ms)
+      ✓ aproving tokens, staking tokens, checking balance (1259ms)
+      ✓ checking contract balance after staking (156ms)
+      ✓ checking user balance inside contract (131ms)
+      ✓ checking total staked (136ms)
+      ✓ testing if user is staking at the moment (148ms)
+      ✓ testing if user has staked (145ms)
     TokenStaking redistributeRewards function
-      ✓ checking who can do redistribution (1259ms)
-      ✓ checking TokenStaking balance (136ms)
-      ✓ checking user balance (95ms)
+      ✓ checking who can do redistribution (1059ms)
+      ✓ checking TokenStaking balance (105ms)
+      ✓ checking user balance (130ms)
     TokenStaking unstakeTokens function
-      ✓ unstaking and checking users balance after unstake (620ms)
-      ✓ checking total staked (174ms)
+      ✓ unstaking and checking users balance after unstake (468ms)
+      ✓ checking total staked (132ms)
     TokenStaking [custom] staking/unstaking functions
-      ✓ checking total custom staked before any stakes (189ms)
-      ✓ checking usrs balance before staking (128ms)
-      ✓ aproving tokens, staking tokens, checking balance (945ms)
-      ✓ checking custom total staked (143ms)
-      ✓ testing if user is staking at custom staking at the moment (124ms)
-      ✓ testing if user has staked at custom staking (157ms)
-      ✓ unstaking from custom staking and checking users balance  (683ms)
+      ✓ checking total custom staked before any stakes (132ms)
+      ✓ checking usrs balance before staking (165ms)
+      ✓ aproving tokens, staking tokens, checking balance (1131ms)
+      ✓ checking custom total staked (125ms)
+      ✓ testing if user is staking at custom staking at the moment (147ms)
+      ✓ testing if user has staked at custom staking (107ms)
+      ✓ unstaking from custom staking and checking users balance  (535ms)
     Claim Tst
-      ✓ trying to obtain 1000 test token (373ms)
+      ✓ trying to obtain 1000 test token (395ms)
     Change custom APY value
-      ✓ checking who can change APY (1069ms)
-      ✓ checking new custom APY value (172ms)
+      ✓ checking who can change APY (1115ms)
+      ✓ checking new custom APY value (146ms)
+    Testing custom APY reward redistribution
+      ✓ staking at customStaking (1299ms)
+      ✓ redistributing rewards, checking who can redistribute (733ms)
+      ✓ checking user balance after custom APY rewards  (111ms)
 ```      
 
 
 for private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
 
-Smart Contract Address on Test Net
-Ropsten: 0xABa3314745b3eBCF91Eb4a61f695fc55B81119eF
-Rinkeby: 0xB18D4a5D7bc8450A957f7AD1675D5e606d4482B0
+TokenStaking Smart Contract Address on Test Net
+Ropsten: 0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F
+Rinkeby: 0xAf9352B33E9B08A86dD04fcD8533DbC75BD2c8d1
 
-Token Contract Address on Test Net
-Ropsten: 0xC8B88a647b0c3D2CCce7bD561C8285c1FaA79b15
-Rinkeby: 0xEc8E737d460B5DbD62E9B3062b6e7E472FCe2B06
+TestToken Contract Address on Test Net
+Ropsten: 0x0190f80487179053eb85451454541644AbAf4048
+Rinkeby: 0xb54039DAC3C4ADdAC082e86a6e9C290E80af9488
+
+Current Admin on Test Net
+Ropsten: 0x3349ca399168dF1c0df96a49410F5F9940241AbC
+Rinkeby: 0x3349ca399168dF1c0df96a49410F5F9940241AbC
