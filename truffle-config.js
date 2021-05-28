@@ -10,6 +10,10 @@ const infuraKey = fs
   .readFileSync('.infuraKey')
   .toString()
   .trim();
+const ethKey = fs
+  .readFileSync('.ethKey')
+  .toString()
+  .trim();
 
 module.exports = {
   networks: {
@@ -18,7 +22,7 @@ module.exports = {
       port: 7545,
       network_id: '*', // Match any network id
     },
-    
+
     //ROPSTEN Test net
     ropsten: {
       provider: function() {
@@ -57,6 +61,13 @@ module.exports = {
       evmVersion: 'petersburg',
     },
   },
+
+  //etherscan API key
+  api_keys: {
+    etherscan: ethKey,
+  },
+  // plugin for verification
+  plugins: ['truffle-plugin-verify'],
 };
 
 //truffle test
@@ -65,3 +76,5 @@ module.exports = {
 // get contract - await TestToken.deployed()
 // to compile -    truffle compile
 // to deploy - truffle migrate --reset
+
+// to verify - truffle run verify Contract --network rinkeby

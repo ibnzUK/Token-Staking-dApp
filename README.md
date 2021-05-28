@@ -45,11 +45,11 @@
 - [x] Implemented ability for admin to change custom pool APY value
 * 
 - [x] Implemented custom reward Pool redistribution
+- [x] Contract Source Code Verified (Exact Match)
 * 
 - [ ] Add frontend for custom pool
 - [ ] Add loader, indicator
 - [ ] Split components in to smaller
-- [ ] Validate contracts
 - [ ] Add clear running description
 
 
@@ -117,12 +117,12 @@ mocha testing output
 for private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
 
 TokenStaking Smart Contract Address on Test Net
-Ropsten: 0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F
-Rinkeby: 0xAf9352B33E9B08A86dD04fcD8533DbC75BD2c8d1
+Ropsten: Verified: https://ropsten.etherscan.io/address/0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F#contracts
+Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xAf9352B33E9B08A86dD04fcD8533DbC75BD2c8d1#contracts
 
 TestToken Contract Address on Test Net
-Ropsten: 0x0190f80487179053eb85451454541644AbAf4048
-Rinkeby: 0xb54039DAC3C4ADdAC082e86a6e9C290E80af9488
+Ropsten: Verified: https://ropsten.etherscan.io/address/0x0190f80487179053eb85451454541644AbAf4048#contracts
+Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xb54039DAC3C4ADdAC082e86a6e9C290E80af9488#contracts
 
 Current Admin on Test Net
 Ropsten: 0x3349ca399168dF1c0df96a49410F5F9940241AbC

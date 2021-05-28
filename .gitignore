@@ -26,3 +26,4 @@ yarn-error.log*
 # security
 .secret
 .infuraKey
+.ethKey
