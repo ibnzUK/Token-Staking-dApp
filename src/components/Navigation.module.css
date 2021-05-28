@@ -1,0 +1,48 @@
+.navigation {
+    grid-column: 3;
+    grid-row: 2;
+    position: absolute;
+    margin-top: -2em;
+    margin-left: 2em;
+  }
+  
+  .buttonActive {
+    padding: 0.4em;
+    font-weight: 600;
+    color: rgb(58, 58, 58);
+    background-color: #ffffff;
+    border: none;
+    width: 13em;
+    height: 2em;
+    border-radius: 3em 3em 0 0;
+    margin-right: -1.5em;
+    border: 0.3em solid rgba(6, 72, 148, 0.308);
+    border-bottom: none;
+    z-index: 1;
+    position: relative;
+    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 0px -30px 50px 3px rgba(0,0,0,0); 
+    box-shadow: -10px 0px 13px 1px #00000031, 10px -10px 13px 5px #0000001f, 0px -30px 50px 13px rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+  .buttonNonActive {
+    padding: 0.5em;
+    font-weight: 600;
+    color: rgba(247, 247, 247, 0.726);
+    background-color: #5781cfc0;
+    border: none;
+    width: 11.5em;
+    height: 2em;
+    border-radius: 3em 3em 0 0;
+    margin-right: -1.5em;
+    border: 0.2em solid rgba(6, 72, 148, 0.308);
+    border-bottom: none;
+    z-index: 0;
+    position: relative;
+    cursor: pointer;
+  
+  }
+  
+  .buttonNonActive:hover {
+    background-color: #5781cfd7;
+    color: rgb(247, 247, 247);
+  }

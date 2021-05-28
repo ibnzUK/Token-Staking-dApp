@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import classes from './App.module.css';
-import Button from './components/Button';
 import TestToken from '../src/abis/TestToken.json';
 import TokenStaking from '../src/abis/TokenStaking.json';
+import Staking from './components/Staking';
+import AdminTesting from './components/AdminTesting';
+import Navigation from './components/Navigation';
 
 const App = () => {
   const [account, setAccount] = useState('Connecting to Metamask..');
@@ -17,6 +19,7 @@ const App = () => {
   const [loader, setLoader] = useState(true);
   const [network, setNetwork] = useState({ id: '0', name: 'none' });
   const [userBalance, setUserBalance] = useState('none');
+
 
   useEffect(() => {
     //connecting to ethereum blockchain
@@ -123,9 +126,8 @@ const App = () => {
     }
   };
 
-  const inputChangeHandler = (event) => {
-    event.preventDefault();
-    setInputValue(event.target.value);
+  const inputHandler = (received) => {
+    setInputValue(received);
   };
 
   const stakeHandler = () => {
@@ -243,9 +245,7 @@ const App = () => {
       });
   };
 
-  const goMax = () => {
-    setInputValue(userBalance);
-  };
+
 
   return (
     <div className={classes.Grid}>
@@ -253,53 +253,27 @@ const App = () => {
       <div className={classes.loader}></div>
 
       <div className={classes.Child}>
-        <h1>Yield Farming / Token Staking dApp</h1>
-        <p>{account}</p>
-        <h3>36.5% (APY) - 0.1% Daily Earnings</h3>
-        <div className={classes.inputDiv}>
-          <input
-            className={classes.input}
-            type="number"
-            min="0"
-            step="1"
-            onChange={inputChangeHandler}
-            value={inputValue}
-          ></input>
+       <Navigation/>
+        <div>
+          <Staking
+            account={account}
+            totalStaked={totalStaked}
+            myStake={myStake}
+            userBalance={userBalance}
+            unStakeHandler={unStakeHandler}
+            stakeHandler={stakeHandler}
+            inputHandler={inputHandler}
+          />
         </div>
-        <Button buttonState={'stake'} stake={stakeHandler}>
-          Stake
-        </Button>
-        &nbsp; &nbsp;
-        <Button buttonState={'unstake'} unstake={unStakeHandler}>
-          Unstake All
-        </Button>
-        <div className={classes.totals}>
-          <h4>Total Staked (by all users): {totalStaked} TestToken (Tst) </h4>
 
-          <div>&nbsp;</div>
-          <h5>My Stake: {myStake} TestToken (Tst) </h5>
-          <h5>
-            My Estimated Reward: {(myStake * 0.001).toFixed(3)} TestToken (Tst){' '}
-          </h5>
-          <h5 onClick={goMax} className={classes.goMax}>
-            My balance: {userBalance} TestToken (Tst){' '}
-          </h5>
-        </div>
         <div className={classes.for_testing}>
-          <p>FOR TESTING PURPOSE ONLY</p>
-          <button onClick={claimTst}>Claim for 1000 Tst (User)</button>
-          &nbsp; &nbsp;
-          <button onClick={redistributeRewards}>
-            Redistribute rewards (Admin)
-          </button>
-          <div className={classes.network}>
-            <p>
-              Selected Network: <b>{network.name}</b>
-              &nbsp; id: <b>{network.id}</b>
-            </p>
-            <p>Contract Balance: {contractBalance} TestToken (Tst) </p>
-            <p>Staking Contract address: {tokenStakingContract._address}</p>
-          </div>
+          <AdminTesting
+            network={network}
+            tokenStakingContract={tokenStakingContract}
+            contractBalance={contractBalance}
+            redistributeRewards={redistributeRewards}
+            claimTst={claimTst}
+          />
         </div>
       </div>
     </div>

@@ -30,70 +30,6 @@
   -webkit-box-shadow: 0px 0px 50px 50px rgba(0, 0, 0, 0.44);
   box-shadow: 0px 0px 800px 20px rgba(19, 75, 99, 0.44);
 }
-.Child h1 {
-  margin-top: 1.2em;
-}
-
-/* ......... */
-.inputDiv {
-  padding: 3em;
-  height: 5em;
-
-  align-items: center;
-
-}
-
-.input {
-  height: 3em;
-  width: 37em;
-  border-radius: 0.5em;
-  border: none;
-  text-align: center;
-
-
-}
-input:focus {
-  outline: none;
-  border: 0.2em solid rgba(23, 60, 139, 0.301);
-}
-
-.totals {
-  /* padding-top: 3em; */
-  margin-top: 3em;
-  height: 3em;
-}
-
-.for_testing {
-  margin-top: 11em;
-  padding-top: 1em;
-  background-color: rgba(95, 158, 160, 0.034);
-  height: 24em;
-  border-radius: 0 0 2em 2em;
-}
-
-.for_testing p {
-  padding-top: 1em;
-  color: #37a99e;
-}
-
-.for_testing button {
-  background-color: rgba(255, 255, 255, 0);
-  color: white;
-  font-size: 1em;
-  border: white solid 0.05em;
-  border-radius: 0.5em;
-  height: 5em;
-  width: 15em;
-  cursor: pointer;
-}
-
-.for_testing button:hover {
-  background-color: rgba(255, 255, 255, 0.068);
-}
-
-.goMax {
-  cursor: pointer;
-}
 
 .curtain {
   background-color: rgba(0, 0, 0, 0.466);
@@ -102,13 +38,10 @@ input:focus {
   width: auto;
   grid-column-start: 1;
   grid-column-end: 6;
-  z-index: 1;
+  z-index: 2;
   filter: blur(8px);
   -webkit-backdrop-filter: blur(1.5em);
   backdrop-filter: blur(1.5em);
 }
 
-.network p {
-  color: white;
-  font-size: 0.8em;
-}
+
