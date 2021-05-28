@@ -61,9 +61,9 @@
 
 ## Running instructions
 
-* copy project to your directory ( git clone https://github.com/ibnzUK/Token-Staking-dApp )
-* install project packages (npm install)
-* start project (npm run start)
+* Copy project to your directory ( git clone https://github.com/ibnzUK/Token-Staking-dApp )
+* Install project packages (npm install)
+* Start project (npm run start)
 
 
 ## For Testing
@@ -114,16 +114,17 @@ mocha testing output
 ```      
 
 
-for private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
+For private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
+
 
 TokenStaking Smart Contract Address on Test Net
-Ropsten: Verified: https://ropsten.etherscan.io/address/0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F#contracts
-Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xAf9352B33E9B08A86dD04fcD8533DbC75BD2c8d1#contracts
+* Ropsten: Verified: https://ropsten.etherscan.io/address/0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F#contracts
+* Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xAf9352B33E9B08A86dD04fcD8533DbC75BD2c8d1#contracts
 
 TestToken Contract Address on Test Net
-Ropsten: Verified: https://ropsten.etherscan.io/address/0x0190f80487179053eb85451454541644AbAf4048#contracts
-Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xb54039DAC3C4ADdAC082e86a6e9C290E80af9488#contracts
+* Ropsten: Verified: https://ropsten.etherscan.io/address/0x0190f80487179053eb85451454541644AbAf4048#contracts
+* Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xb54039DAC3C4ADdAC082e86a6e9C290E80af9488#contracts
+
 
 Current Admin on Test Net
-Ropsten: 0x3349ca399168dF1c0df96a49410F5F9940241AbC
-Rinkeby: 0x3349ca399168dF1c0df96a49410F5F9940241AbC
+* Ropsten, Rinkeby : 0x3349ca399168dF1c0df96a49410F5F9940241AbC
