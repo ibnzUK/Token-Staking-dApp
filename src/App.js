@@ -15,7 +15,7 @@ const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [contractBalance, setContractBalance] = useState('');
   const [totalStaked, setTotalStaked] = useState([0, 0]);
-  const [myStake, setMyStake] = useState('');
+  const [myStake, setMyStake] = useState([0, 0]);
   const [loader, setLoader] = useState(true);
   const [network, setNetwork] = useState({ id: '0', name: 'none' });
   const [userBalance, setUserBalance] = useState('none');
@@ -104,7 +104,17 @@ const App = () => {
           myStake.toString(),
           'Ether'
         );
-        setMyStake(convertedBalance);
+
+        let myCustomStake = await tokenStaking.methods
+          .customStakingBalance(accounts[0])
+          .call();
+
+        let tempCustomdBalance = window.web3.utils.fromWei(
+          myCustomStake.toString(),
+          'Ether'
+        );
+
+        setMyStake([convertedBalance, tempCustomdBalance]);
 
         //checking totalStaked
         let tempTotalStaked = await tokenStaking.methods.totalStaked().call();
@@ -112,12 +122,14 @@ const App = () => {
           tempTotalStaked.toString(),
           'Ether'
         );
-        let tempcustomTotalStaked = await tokenStaking.methods.customTotalStaked().call();
+        let tempcustomTotalStaked = await tokenStaking.methods
+          .customTotalStaked()
+          .call();
         let tempconvertedBalance = window.web3.utils.fromWei(
           tempcustomTotalStaked.toString(),
           'Ether'
         );
-        setTotalStaked([convertedBalance, tempconvertedBalance ]);
+        setTotalStaked([convertedBalance, tempconvertedBalance]);
 
         //fetching APY values from contract
         let tempApy =
@@ -138,9 +150,6 @@ const App = () => {
       setLoader(false);
     }
   };
-
-
-
 
   const inputHandler = (received) => {
     setInputValue(received);
@@ -167,21 +176,39 @@ const App = () => {
         .approve(tokenStakingContract._address, convertToWei)
         .send({ from: account })
         .on('transactionHash', (hash) => {
-          tokenStakingContract.methods
-            .stakeTokens(convertToWei)
-            .send({ from: account })
-            .on('transactionHash', (hash) => {
-              setLoader(false);
-              fetchDataFromBlockchain();
-            })
-            .on('receipt', (receipt) => {
-              setLoader(false);
-              fetchDataFromBlockchain();
-            })
-            .on('confirmation', (confirmationNumber, receipt) => {
-              setLoader(false);
-              fetchDataFromBlockchain();
-            });
+          if (page === 1) {
+            tokenStakingContract.methods
+              .stakeTokens(convertToWei)
+              .send({ from: account })
+              .on('transactionHash', (hash) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              })
+              .on('receipt', (receipt) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              })
+              .on('confirmation', (confirmationNumber, receipt) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              });
+          } else if (page === 2) {
+            tokenStakingContract.methods
+              .customStaking(convertToWei)
+              .send({ from: account })
+              .on('transactionHash', (hash) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              })
+              .on('receipt', (receipt) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              })
+              .on('confirmation', (confirmationNumber, receipt) => {
+                setLoader(false);
+                fetchDataFromBlockchain();
+              });
+          }
         })
         .on('error', function(error) {
           console.log('Error Code:', error.code);
@@ -197,29 +224,55 @@ const App = () => {
   const unStakeHandler = () => {
     setLoader(true);
     // let convertToWei = window.web3.utils.toWei(inputValue, 'Ether')
-    tokenStakingContract.methods
-      .unstakeTokens()
-      .send({ from: account })
-      .on('transactionHash', (hash) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('receipt', (receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('confirmation', (confirmationNumber, receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
+    if (page === 1) {
+      tokenStakingContract.methods
+        .unstakeTokens()
+        .send({ from: account })
+        .on('transactionHash', (hash) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('receipt', (receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('confirmation', (confirmationNumber, receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
 
-      .on('error', function(error) {
-        console.log('Error Code:', error.code);
-        console.log(error.message);
-        setLoader(false);
-      });
+        .on('error', function(error) {
+          console.log('Error Code:', error.code);
+          console.log(error.message);
+          setLoader(false);
+        });
 
-    setInputValue('');
+      setInputValue('');
+    } else if (page === 2) {
+      tokenStakingContract.methods
+        .customUnstake()
+        .send({ from: account })
+        .on('transactionHash', (hash) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('receipt', (receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('confirmation', (confirmationNumber, receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+
+        .on('error', function(error) {
+          console.log('Error Code:', error.code);
+          console.log(error.message);
+          setLoader(false);
+        });
+
+      setInputValue('');
+    }
   };
 
   const redistributeRewards = async () => {
@@ -282,7 +335,7 @@ const App = () => {
           <Staking
             account={account}
             totalStaked={page === 1 ? totalStaked[0] : totalStaked[1]}
-            myStake={myStake}
+            myStake={page === 1 ? myStake[0] : myStake[1]}
             userBalance={userBalance}
             unStakeHandler={unStakeHandler}
             stakeHandler={stakeHandler}
