@@ -1,11 +1,12 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import classes from './Navigation.module.css';
 
-const Navigation = () => {
+const Navigation = (props) => {
   const [poolStatus, setPoolStatus] = useState('default');
 
   const changePool = (val) => {
     setPoolStatus(val);
+    props.changePage();
   };
 
   return (
@@ -20,7 +21,7 @@ const Navigation = () => {
           changePool('default');
         }}
       >
-        36.5% (APY)
+         {props.apy[0]}% (APY)
       </button>
       <button
         className={
@@ -32,7 +33,7 @@ const Navigation = () => {
           changePool('custom');
         }}
       >
-        50.05% (APY)
+           {props.apy[1]}% (APY)
       </button>
     </div>
   );

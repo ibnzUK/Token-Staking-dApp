@@ -19,7 +19,9 @@ const Staking = (props) => {
     <div className={classes.Staking}>
       <h1>Yield Farming / Token Staking dApp</h1>
       <p>{props.account}</p>
-      <h3>36.5% (APY) - 0.1% Daily Earnings</h3>
+      <h3>
+        {props.apy}% (APY) - {props.apy / 365}% Daily Earnings
+      </h3>
       <div className={classes.inputDiv}>
         <input
           className={classes.input}
