@@ -5,8 +5,11 @@ const Navigation = (props) => {
   const [poolStatus, setPoolStatus] = useState('default');
 
   const changePool = (val) => {
-    setPoolStatus(val);
-    props.changePage();
+    if (val === poolStatus) {
+    } else {
+      setPoolStatus(val);
+      props.changePage();
+    }
   };
 
   return (
@@ -21,7 +24,7 @@ const Navigation = (props) => {
           changePool('default');
         }}
       >
-         {props.apy[0]}% (APY)
+        {props.apy[0]}% (APY)
       </button>
       <button
         className={
@@ -33,7 +36,7 @@ const Navigation = (props) => {
           changePool('custom');
         }}
       >
-           {props.apy[1]}% (APY)
+        {props.apy[1]}% (APY)
       </button>
     </div>
   );

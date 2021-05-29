@@ -8,7 +8,7 @@ const AdminTesting = (props) => {
       <button onClick={props.claimTst}>Claim for 1000 Tst (User)</button>
       &nbsp; &nbsp;
       <button onClick={props.redistributeRewards}>
-        Redistribute rewards (Admin)
+       {props.page === 1 ? `Redistribute rewards (Admin)` : `Custom redistribution (Admin)`} 
       </button>
       <div className={classes.network}>
         <p>

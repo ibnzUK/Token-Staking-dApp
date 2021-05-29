@@ -13,13 +13,13 @@ const App = () => {
   const [testTokenContract, setTestTokenContract] = useState('');
   const [tokenStakingContract, setTokenStakingContract] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const [contractBalance, setContractBalance] = useState('');
+  const [contractBalance, setContractBalance] = useState('0');
   const [totalStaked, setTotalStaked] = useState([0, 0]);
   const [myStake, setMyStake] = useState([0, 0]);
   const [loader, setLoader] = useState(true);
   const [network, setNetwork] = useState({ id: '0', name: 'none' });
-  const [userBalance, setUserBalance] = useState('none');
-  const [apy, setApy] = useState([36.5, 50.05]);
+  const [userBalance, setUserBalance] = useState('0');
+  const [apy, setApy] = useState([0, 0]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -158,10 +158,8 @@ const App = () => {
   const changePage = () => {
     if (page === 1) {
       setPage(2);
-      console.log('page set to 2');
     } else if (page === 2) {
       setPage(1);
-      console.log('page set to 1');
     }
   };
 
@@ -177,6 +175,7 @@ const App = () => {
         .send({ from: account })
         .on('transactionHash', (hash) => {
           if (page === 1) {
+       
             tokenStakingContract.methods
               .stakeTokens(convertToWei)
               .send({ from: account })
@@ -193,6 +192,7 @@ const App = () => {
                 fetchDataFromBlockchain();
               });
           } else if (page === 2) {
+     
             tokenStakingContract.methods
               .customStaking(convertToWei)
               .send({ from: account })
@@ -211,12 +211,13 @@ const App = () => {
           }
         })
         .on('error', function(error) {
+          setLoader(false);
           console.log('Error Code:', error.code);
           console.log(error.message);
-          setLoader(false);
+      
         });
 
-      setLoader(false);
+  
       setInputValue('');
     }
   };
@@ -299,6 +300,32 @@ const App = () => {
         setLoader(false);
       });
   };
+
+  const redistributeCustomRewards = async () => {
+    setLoader(true);
+    tokenStakingContract.methods
+      .customRewards()
+      .send({ from: account })
+
+      .on('transactionHash', (hash) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('receipt', (receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('confirmation', (confirmationNumber, receipt) => {
+        setLoader(false);
+        fetchDataFromBlockchain();
+      })
+      .on('error', function(error) {
+        console.log('Error Code:', error.code);
+        console.log(error.code);
+        setLoader(false);
+      });
+  };
+
   const claimTst = async () => {
     setLoader(true);
 
@@ -350,8 +377,11 @@ const App = () => {
             network={network}
             tokenStakingContract={tokenStakingContract}
             contractBalance={contractBalance}
-            redistributeRewards={redistributeRewards}
+            redistributeRewards={
+              page === 1 ? redistributeRewards : redistributeCustomRewards
+            }
             claimTst={claimTst}
+            page={page}
           />
         </div>
       </div>

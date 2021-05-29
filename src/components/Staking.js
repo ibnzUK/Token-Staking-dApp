@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import classes from './Staking.module.css';
+import stakeIcon from '../assets/stake.png';
+import unstakeIcon from '../assets/unstake.png';
+import icon from '../assets/icon.png';
 
 const Staking = (props) => {
   const [inputValue, setInputValue] = useState('');
@@ -17,7 +20,8 @@ const Staking = (props) => {
 
   return (
     <div className={classes.Staking}>
-      <h1>Yield Farming / Token Staking dApp</h1>
+      <img src={icon} alt="logo" className={classes.icon} />
+      <h1>  Yield Farming / Token Staking dApp</h1>
       <p>{props.account}</p>
       <h3>
         {props.apy}% (APY) - {props.apy / 365}% Daily Earnings
@@ -39,11 +43,13 @@ const Staking = (props) => {
           setInputValue('');
         }}
       >
-        Stake
+        <img src={stakeIcon} alt="stake icon" className={classes.stakeIcon} />
+        <p>Stake</p>
       </button>
       &nbsp; &nbsp;
       <button className={classes.unstakeButton} onClick={props.unStakeHandler}>
-        Unstake All
+      <img src={unstakeIcon} alt="unstake icon" className={classes.stakeIcon} />
+        <p>Unstake All</p>
       </button>
       <div className={classes.totals}>
         <h4>
@@ -53,8 +59,8 @@ const Staking = (props) => {
         <div>&nbsp;</div>
         <h5>My Stake: {props.myStake} TestToken (Tst) </h5>
         <h5>
-          My Estimated Reward: {(props.myStake * 0.001).toFixed(3)} TestToken
-          (Tst){' '}
+          My Estimated Reward:{' '}
+          {((props.myStake * props.apy) / 36500).toFixed(3)} TestToken (Tst){' '}
         </h5>
         <h5 onClick={goMax} className={classes.goMax}>
           My balance: {props.userBalance} TestToken (Tst){' '}
@@ -63,5 +69,5 @@ const Staking = (props) => {
     </div>
   );
 };
-
+//My balance: 504304.394968082 TestToken (Tst)
 export default Staking;

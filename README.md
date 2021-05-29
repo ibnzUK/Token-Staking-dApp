@@ -42,14 +42,16 @@
 - [x] Deployed on ropsten and rinkeby
 * 
 - [x] Different staking pool implemented customStake/customUnstake
-- [x] Implemented ability for admin to change custom pool APY value
+- [x] Implemented ability for admin to change custom pool APY value via script
 * 
 - [x] Implemented custom reward Pool redistribution
 - [x] Contract Source Code Verified (Exact Match)
 * 
-- [ ] Add frontend for custom pool
-- [ ] Add loader, indicator
-- [ ] Split components in to smaller
+- [x] Components split in to smaller
+- [x] Added frontend logic for custom pools
+- [x] Added UI Elements
+- [x] Loaders fixed
+* 
 - [ ] Add clear running description
 
 
