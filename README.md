@@ -58,11 +58,7 @@
 * 
 - [ ] Add clear running description
 
-```diff
-- # Token Staking dApp <h1>
-```
-Front end functions to `Claim for 1000 Tst` token and `Redistribute rewards or Custom redistribution` are only for testing purpose and showcase of application. Do not include or use them in your final project.
-![Preview](src/assets/screenshot4.png)
+
 
 ## Running instructions
 * Copy project to your directory ( git clone https://github.com/ibnzUK/Token-Staking-dApp )
@@ -140,3 +136,10 @@ TestToken Contract Address on Test Net
 
 Current Admin on Test Net
 * Ropsten, Rinkeby : 0x3349ca399168dF1c0df96a49410F5F9940241AbC
+
+
+# Warning, known security issue, use at own risk <h1> 
+
+Front end functions to `Claim for 1000 Tst` token and `Redistribute rewards or Custom redistribution` are only for testing purpose and showcase of application. Do not include or use them in your final project.
+
+![Preview](src/assets/screenshot4.png)
