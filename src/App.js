@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 
 const App = () => {
   const [account, setAccount] = useState('Connecting to Metamask..');
+  const [appStatus, setAppStatus] = useState(true);
 
   const [testTokenContract, setTestTokenContract] = useState('');
   const [tokenStakingContract, setTokenStakingContract] = useState('');
@@ -80,6 +81,7 @@ const App = () => {
         //removing initial balance
         setContractBalance(convertedBalance);
       } else {
+        setAppStatus(false);
         window.alert(
           'TestToken contract is not deployed on this network, please change to testnet'
         );
@@ -138,6 +140,7 @@ const App = () => {
           ((await tokenStaking.methods.customAPY().call()) / 1000) * 365;
         setApy([tempApy, tempcustomApy]);
       } else {
+        setAppStatus(false);
         window.alert(
           'TokenStaking contract is not deployed on this network, please change to testnet'
         );
@@ -145,8 +148,8 @@ const App = () => {
       //removing loader
       setLoader(false);
     } else if (!window.web3) {
+      setAppStatus(false);
       setAccount('Metamask is not detected');
-
       setLoader(false);
     }
   };
@@ -164,191 +167,201 @@ const App = () => {
   };
 
   const stakeHandler = () => {
-    if (!inputValue || inputValue === '0' || inputValue < 0) {
-      setInputValue('');
+    if (!appStatus) {
     } else {
-      setLoader(true);
-      let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
-      //aproving tokens for spending
-      testTokenContract.methods
-        .approve(tokenStakingContract._address, convertToWei)
-        .send({ from: account })
-        .on('transactionHash', (hash) => {
-          if (page === 1) {
-       
-            tokenStakingContract.methods
-              .stakeTokens(convertToWei)
-              .send({ from: account })
-              .on('transactionHash', (hash) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              })
-              .on('receipt', (receipt) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              })
-              .on('confirmation', (confirmationNumber, receipt) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              });
-          } else if (page === 2) {
-     
-            tokenStakingContract.methods
-              .customStaking(convertToWei)
-              .send({ from: account })
-              .on('transactionHash', (hash) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              })
-              .on('receipt', (receipt) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              })
-              .on('confirmation', (confirmationNumber, receipt) => {
-                setLoader(false);
-                fetchDataFromBlockchain();
-              });
-          }
-        })
-        .on('error', function(error) {
-          setLoader(false);
-          console.log('Error Code:', error.code);
-          console.log(error.message);
-      
-        });
+      if (!inputValue || inputValue === '0' || inputValue < 0) {
+        setInputValue('');
+      } else {
+        setLoader(true);
+        let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
+        //aproving tokens for spending
+        testTokenContract.methods
+          .approve(tokenStakingContract._address, convertToWei)
+          .send({ from: account })
+          .on('transactionHash', (hash) => {
+            if (page === 1) {
+              tokenStakingContract.methods
+                .stakeTokens(convertToWei)
+                .send({ from: account })
+                .on('transactionHash', (hash) => {
+                  setLoader(false);
+                  fetchDataFromBlockchain();
+                })
+                .on('receipt', (receipt) => {
+                  setLoader(false);
+                  fetchDataFromBlockchain();
+                })
+                .on('confirmation', (confirmationNumber, receipt) => {
+                  setLoader(false);
+                  fetchDataFromBlockchain();
+                });
+            } else if (page === 2) {
+              tokenStakingContract.methods
+                .customStaking(convertToWei)
+                .send({ from: account })
+                .on('transactionHash', (hash) => {
+                  setLoader(false);
+                  fetchDataFromBlockchain();
+                })
+                .on('receipt', (receipt) => {
+                  setLoader(false);
+                  fetchDataFromBlockchain();
+                })
+                .on('confirmation', (confirmationNumber, receipt) => {
+                  setLoader(false);
+                  fetchDataFromBlockchain();
+                });
+            }
+          })
+          .on('error', function(error) {
+            setLoader(false);
+            console.log('Error Code:', error.code);
+            console.log(error.message);
+          });
 
-  
-      setInputValue('');
+        setInputValue('');
+      }
     }
   };
 
   const unStakeHandler = () => {
-    setLoader(true);
-    // let convertToWei = window.web3.utils.toWei(inputValue, 'Ether')
-    if (page === 1) {
-      tokenStakingContract.methods
-        .unstakeTokens()
-        .send({ from: account })
-        .on('transactionHash', (hash) => {
-          setLoader(false);
-          fetchDataFromBlockchain();
-        })
-        .on('receipt', (receipt) => {
-          setLoader(false);
-          fetchDataFromBlockchain();
-        })
-        .on('confirmation', (confirmationNumber, receipt) => {
-          setLoader(false);
-          fetchDataFromBlockchain();
-        })
+    if (!appStatus) {
+    } else {
+      setLoader(true);
+      // let convertToWei = window.web3.utils.toWei(inputValue, 'Ether')
+      if (page === 1) {
+        tokenStakingContract.methods
+          .unstakeTokens()
+          .send({ from: account })
+          .on('transactionHash', (hash) => {
+            setLoader(false);
+            fetchDataFromBlockchain();
+          })
+          .on('receipt', (receipt) => {
+            setLoader(false);
+            fetchDataFromBlockchain();
+          })
+          .on('confirmation', (confirmationNumber, receipt) => {
+            setLoader(false);
+            fetchDataFromBlockchain();
+          })
 
-        .on('error', function(error) {
-          console.log('Error Code:', error.code);
-          console.log(error.message);
-          setLoader(false);
-        });
+          .on('error', function(error) {
+            console.log('Error Code:', error.code);
+            console.log(error.message);
+            setLoader(false);
+          });
 
-      setInputValue('');
-    } else if (page === 2) {
-      tokenStakingContract.methods
-        .customUnstake()
-        .send({ from: account })
-        .on('transactionHash', (hash) => {
-          setLoader(false);
-          fetchDataFromBlockchain();
-        })
-        .on('receipt', (receipt) => {
-          setLoader(false);
-          fetchDataFromBlockchain();
-        })
-        .on('confirmation', (confirmationNumber, receipt) => {
-          setLoader(false);
-          fetchDataFromBlockchain();
-        })
+        setInputValue('');
+      } else if (page === 2) {
+        tokenStakingContract.methods
+          .customUnstake()
+          .send({ from: account })
+          .on('transactionHash', (hash) => {
+            setLoader(false);
+            fetchDataFromBlockchain();
+          })
+          .on('receipt', (receipt) => {
+            setLoader(false);
+            fetchDataFromBlockchain();
+          })
+          .on('confirmation', (confirmationNumber, receipt) => {
+            setLoader(false);
+            fetchDataFromBlockchain();
+          })
 
-        .on('error', function(error) {
-          console.log('Error Code:', error.code);
-          console.log(error.message);
-          setLoader(false);
-        });
+          .on('error', function(error) {
+            console.log('Error Code:', error.code);
+            console.log(error.message);
+            setLoader(false);
+          });
 
-      setInputValue('');
+        setInputValue('');
+      }
     }
   };
 
   const redistributeRewards = async () => {
-    setLoader(true);
-    tokenStakingContract.methods
-      .redistributeRewards()
-      .send({ from: account })
+    if (!appStatus) {
+    } else {
+      setLoader(true);
+      tokenStakingContract.methods
+        .redistributeRewards()
+        .send({ from: account })
 
-      .on('transactionHash', (hash) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('receipt', (receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('confirmation', (confirmationNumber, receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('error', function(error) {
-        console.log('Error Code:', error.code);
-        console.log(error.code);
-        setLoader(false);
-      });
+        .on('transactionHash', (hash) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('receipt', (receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('confirmation', (confirmationNumber, receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('error', function(error) {
+          console.log('Error Code:', error.code);
+          console.log(error.code);
+          setLoader(false);
+        });
+    }
   };
 
   const redistributeCustomRewards = async () => {
-    setLoader(true);
-    tokenStakingContract.methods
-      .customRewards()
-      .send({ from: account })
+    if (!appStatus) {
+    } else {
+      setLoader(true);
+      tokenStakingContract.methods
+        .customRewards()
+        .send({ from: account })
 
-      .on('transactionHash', (hash) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('receipt', (receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('confirmation', (confirmationNumber, receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('error', function(error) {
-        console.log('Error Code:', error.code);
-        console.log(error.code);
-        setLoader(false);
-      });
+        .on('transactionHash', (hash) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('receipt', (receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('confirmation', (confirmationNumber, receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('error', function(error) {
+          console.log('Error Code:', error.code);
+          console.log(error.code);
+          setLoader(false);
+        });
+    }
   };
 
   const claimTst = async () => {
-    setLoader(true);
-
-    tokenStakingContract.methods
-      .claimTst()
-      .send({ from: account })
-      .on('transactionHash', (hash) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('receipt', (receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('confirmation', (confirmationNumber, receipt) => {
-        setLoader(false);
-        fetchDataFromBlockchain();
-      })
-      .on('error', function(error) {
-        console.log('Error Code:', error.code);
-        console.log(error.code);
-        setLoader(false);
-      });
+    if (!appStatus) {
+    } else {
+      setLoader(true);
+      tokenStakingContract.methods
+        .claimTst()
+        .send({ from: account })
+        .on('transactionHash', (hash) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('receipt', (receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('confirmation', (confirmationNumber, receipt) => {
+          setLoader(false);
+          fetchDataFromBlockchain();
+        })
+        .on('error', function(error) {
+          console.log('Error Code:', error.code);
+          console.log(error.code);
+          setLoader(false);
+        });
+    }
   };
 
   return (
@@ -371,7 +384,6 @@ const App = () => {
             page={page}
           />
         </div>
-
         <div className={classes.for_testing}>
           <AdminTesting
             network={network}
