@@ -9,16 +9,15 @@ import Navigation from './components/Navigation';
 
 const App = () => {
   const [account, setAccount] = useState('Connecting to Metamask..');
-  const [appStatus, setAppStatus] = useState(true);
-
+  const [network, setNetwork] = useState({ id: '0', name: 'none' });
   const [testTokenContract, setTestTokenContract] = useState('');
   const [tokenStakingContract, setTokenStakingContract] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [contractBalance, setContractBalance] = useState('0');
   const [totalStaked, setTotalStaked] = useState([0, 0]);
   const [myStake, setMyStake] = useState([0, 0]);
+  const [appStatus, setAppStatus] = useState(true);
   const [loader, setLoader] = useState(true);
-  const [network, setNetwork] = useState({ id: '0', name: 'none' });
   const [userBalance, setUserBalance] = useState('0');
   const [apy, setApy] = useState([0, 0]);
   const [page, setPage] = useState(1);
@@ -145,6 +144,7 @@ const App = () => {
           'TokenStaking contract is not deployed on this network, please change to testnet'
         );
       }
+
       //removing loader
       setLoader(false);
     } else if (!window.web3) {
@@ -174,6 +174,7 @@ const App = () => {
       } else {
         setLoader(true);
         let convertToWei = window.web3.utils.toWei(inputValue, 'Ether');
+
         //aproving tokens for spending
         testTokenContract.methods
           .approve(tokenStakingContract._address, convertToWei)
@@ -218,7 +219,6 @@ const App = () => {
             console.log('Error Code:', error.code);
             console.log(error.message);
           });
-
         setInputValue('');
       }
     }
@@ -228,6 +228,7 @@ const App = () => {
     if (!appStatus) {
     } else {
       setLoader(true);
+
       // let convertToWei = window.web3.utils.toWei(inputValue, 'Ether')
       if (page === 1) {
         tokenStakingContract.methods
@@ -245,7 +246,6 @@ const App = () => {
             setLoader(false);
             fetchDataFromBlockchain();
           })
-
           .on('error', function(error) {
             console.log('Error Code:', error.code);
             console.log(error.message);
@@ -275,7 +275,6 @@ const App = () => {
             console.log(error.message);
             setLoader(false);
           });
-
         setInputValue('');
       }
     }
@@ -288,7 +287,6 @@ const App = () => {
       tokenStakingContract.methods
         .redistributeRewards()
         .send({ from: account })
-
         .on('transactionHash', (hash) => {
           setLoader(false);
           fetchDataFromBlockchain();
@@ -316,7 +314,6 @@ const App = () => {
       tokenStakingContract.methods
         .customRewards()
         .send({ from: account })
-
         .on('transactionHash', (hash) => {
           setLoader(false);
           fetchDataFromBlockchain();
@@ -368,7 +365,6 @@ const App = () => {
     <div className={classes.Grid}>
       {loader ? <div className={classes.curtain}></div> : null}
       <div className={classes.loader}></div>
-
       <div className={classes.Child}>
         <Navigation apy={apy} changePage={changePage} />
         <div>

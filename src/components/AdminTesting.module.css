@@ -25,6 +25,11 @@
 .for_testing button:hover {
   background-color: rgba(255, 255, 255, 0.068);
 }
+
+.for_testing button:focus {
+  outline: none;
+}
+
 .network p {
   color: rgb(119, 157, 201);
   font-size: 0.8em;

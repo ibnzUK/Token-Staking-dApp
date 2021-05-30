@@ -2,17 +2,14 @@
   margin-top: 1.2em;
 }
 .icon {
-    height: 7em;
-    margin-top: 2em;
-    opacity: 0.8;
-
+  height: 7em;
+  margin-top: 2em;
+  opacity: 0.8;
 }
 
-/* ......... */
 .inputDiv {
   padding: 3em;
   height: 5em;
-
   align-items: center;
 }
 
@@ -22,15 +19,14 @@
   border-radius: 0.5em;
   border: none;
   text-align: center;
-
 }
+
 input:focus {
   outline: none;
   border: 0.2em solid rgba(23, 60, 139, 0.301);
 }
 
 .totals {
-  /* padding-top: 3em; */
   margin-top: 3em;
   height: 3em;
 }
@@ -67,8 +63,16 @@ input:focus {
   cursor: pointer;
 }
 
+.stakeButton:focus {
+  outline: none;
+ }
+
 .unstakeButton:hover {
   background-color: #1c375f;
+}
+
+.unstakeButton:focus {
+ outline: none;
 }
 
 .stakeIcon {
@@ -76,7 +80,6 @@ input:focus {
   position: relative;
   top: 0.1em;
   right: 1em;
-
 }
 
 .stakeButton p {
@@ -86,7 +89,7 @@ input:focus {
 }
 
 .unstakeButton p {
-    display: inline;
-    position: relative;
-    bottom: 0.5em;
-  }
+  display: inline;
+  position: relative;
+  bottom: 0.5em;
+}
