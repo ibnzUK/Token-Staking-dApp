@@ -1,7 +1,7 @@
 .Grid {
   display: grid;
   grid-gap: 1px;
-  grid-template-columns: 5em auto 40em auto 5em;
+  grid-template-columns: auto auto 38em auto auto;
   grid-template-rows: 10em auto 30em;
 
   height: 99em;
