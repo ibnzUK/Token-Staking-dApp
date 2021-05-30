@@ -8,7 +8,7 @@
 
 ![Preview](src/assets/screenshot.png)
 - 
-![Preview](src/assets/screenshot2.png)
+
 
 ## Changes
 - [x] Added ERC20 TestToken 
@@ -53,25 +53,30 @@
 - [x] Loaders fixed
 * 
 - [x] Added checks and restrictions for when metamask is not connected
+- [x] UI Optimised for mobiles
+- [x] Production build uploaded to https://ibnz-staking.netlify.app/ for preview and test run
 * 
 - [ ] Add clear running description
 
 
 
 
-
-
-
-
 ## Running instructions
-
 * Copy project to your directory ( git clone https://github.com/ibnzUK/Token-Staking-dApp )
 * Install project packages (npm install)
 * Start project (npm run start)
 
-
 ## For Testing
 * To run tests from /test/TokenStaking (truffle test)
+ 
+## For Admin Use
+* There are prewritten scripts for Admin use either manually or on daily, weekly basic, idealy with predefined cronjob from server.
+* All scripts are located in `/scripts` folder
+* To change APY % run: ```truffle exec scripts/changeAPY.js 0.137``` this script takes 1 argument (daily apy),  in this provided example, admin sets `0.137` daily APY 
+ ![Preview](src/assets/screenshot2.png)
+* To redistribute rewards from console, run: ```truffle exec scripts/redistribute.js``` or provide argument `custom` if you want to redistribute custom rewards
+  ![Preview](src/assets/screenshot3.png)
+
 
 mocha testing output
  ``` Contract: TokenStaking
