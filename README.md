@@ -52,6 +52,8 @@
 - [x] Added UI Elements
 - [x] Loaders fixed
 * 
+- [x] Added checks and restrictions for when metamask is not connected
+* 
 - [ ] Add clear running description
 
 
