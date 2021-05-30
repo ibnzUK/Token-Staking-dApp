@@ -1,7 +1,7 @@
 
 # Token Staking dApp <h1>
 
-
+https://ibnz-staking.netlify.app/
 
 ###### Blockchain Token Staking dApp built with React, Solidity, on Ethereum Ganache, Ropsten, Rinkeby testnet networks <h6>
 
@@ -66,7 +66,7 @@
 * Start project (npm run start)
 
 ## For Testing
-* To run tests from /test/TokenStaking (truffle test)
+* To run tests, navigate to /test/TokenStaking and run: `truffle test`
  
 ## For Admin Use
 * There are prewritten scripts for Admin use either manually or on daily, weekly basic, ideally with predefined cronjob from the server.
@@ -121,9 +121,15 @@ mocha testing output
       ✓ checking user balance after custom APY rewards  (111ms)
 ```      
 
+## Deployoment to Ethereum network and Verification
 
 For private Ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
+* First compile smart contracts with `truffle compile'
+* Deploy to your local Ganache network run: `truffle migrate --reset ` or for Ethereum test network (rinkeby) run: `truffle migrate --network rinkeby --reset` or change `rinkeby` to `ropsten`
+* To verify contract code on Ethereum test network (rinkeby) run: `truffle run verify TestToken --network rinkeby` and or change `rinkeby` to `ropsten`
 
+
+-
 
 TokenStaking Smart Contract Address on Test Net
 * Ropsten: Verified: https://ropsten.etherscan.io/address/0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F#contracts
