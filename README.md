@@ -53,15 +53,15 @@ Working Demo: https://ibnz-staking.netlify.app/
 - [x] Added checks and restrictions for when Metamask is not connected
 - [x] UI Optimised for mobiles
 - [x] Production build uploaded to https://ibnz-staking.netlify.app/ for preview and test run
-* 
+
 
 
 
 
 ## Running instructions
-* Copy project to your directory ( git clone https://github.com/ibnzUK/Token-Staking-dApp )
-* Install project packages (npm install)
-* Start project (npm run start)
+* Copy project to your directory ( `git clone https://github.com/ibnzUK/Token-Staking-dApp` )
+* Install project packages (`npm install`)
+* Start project (`npm run start`)
 
 ## For Testing
 * To run tests, navigate to /test/TokenStaking and run: `truffle test`
