@@ -4,10 +4,12 @@
 
 html {
   font-family: sans-serif;
+  background-color: #010203;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #061429 0%, #061121 100%);
+
+  background: linear-gradient(#122747, #010203);
   color: white;
 }
