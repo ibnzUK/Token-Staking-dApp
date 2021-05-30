@@ -58,8 +58,11 @@
 * 
 - [ ] Add clear running description
 
-
-
+```diff
+- Warning
+```
+Front end functions to `Claim for 1000 Tst` token and `Redistribute rewards or Custom redistribution` are only for testing purpose and showcase of application. Do not include or use them in your final project.
+![Preview](src/assets/screenshot4.png)
 
 ## Running instructions
 * Copy project to your directory ( git clone https://github.com/ibnzUK/Token-Staking-dApp )
