@@ -8,8 +8,6 @@ Working Demo: https://ibnz-staking.netlify.app/
 
 ![Preview](src/assets/screenshot.png)
 - 
-
-
 ## Changes
 - [x] Added ERC20 TestToken 
 - [x] Added Token Staking basic contract
@@ -56,7 +54,7 @@ Working Demo: https://ibnz-staking.netlify.app/
 - [x] UI Optimised for mobiles
 - [x] Production build uploaded to https://ibnz-staking.netlify.app/ for preview and test run
 * 
-- [ ] Add clear running description
+
 
 
 
@@ -77,7 +75,7 @@ Working Demo: https://ibnz-staking.netlify.app/
   ![Preview](src/assets/screenshot3.png)
 
 
-mocha testing output
+## Mocha testing output
  ``` Contract: TokenStaking
     TestToken deployment
       ✓ token deployed and has a name (246ms)
@@ -127,19 +125,15 @@ For private Ethereum test network make sure Ganache is running on HTTP://127.0.0
 * First compile smart contracts with `truffle compile'
 * Deploy to your local Ganache network run: `truffle migrate --reset ` or for Ethereum test network (rinkeby) run: `truffle migrate --network rinkeby --reset` or change `rinkeby` to `ropsten`
 * To verify contract code on Ethereum test network (rinkeby) run: `truffle run verify TestToken --network rinkeby` and or change `rinkeby` to `ropsten`
-
-
--
-
+#
 TokenStaking Smart Contract Address on Test Net
 * Ropsten: Verified: https://ropsten.etherscan.io/address/0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F#contracts
 * Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xAf9352B33E9B08A86dD04fcD8533DbC75BD2c8d1#contracts
-
+#
 TestToken Contract Address on Test Net
 * Ropsten: Verified: https://ropsten.etherscan.io/address/0x0190f80487179053eb85451454541644AbAf4048#contracts
 * Rinkeby: Verified: https://rinkeby.etherscan.io/address/0xb54039DAC3C4ADdAC082e86a6e9C290E80af9488#contracts
-
-
+#
 Current Admin on Test Net
 * Ropsten, Rinkeby : 0x3349ca399168dF1c0df96a49410F5F9940241AbC
 
