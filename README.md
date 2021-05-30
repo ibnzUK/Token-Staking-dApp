@@ -122,9 +122,11 @@ Working Demo: https://ibnz-staking.netlify.app/
 ## Deployoment to Ethereum network and Verification
 
 For private Ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
-* First compile smart contracts with `truffle compile'
-* Deploy to your local Ganache network run: `truffle migrate --reset ` or for Ethereum test network (rinkeby) run: `truffle migrate --network rinkeby --reset` or change `rinkeby` to `ropsten`
-* To verify contract code on Ethereum test network (rinkeby) run: `truffle run verify TestToken --network rinkeby` and or change `rinkeby` to `ropsten`
+* First configure `truffle-config.js` with your infura key and mnemonic key. You can reate files in top dirrectory under names `.infuraKey` and `.secret` and paste your keys in there
+* If you planning to publish your project on github make sure you `.gitignore` your keys 
+* Compile smart contracts with `truffle compile`
+* Deploy to your local (Ganache) network run: `truffle migrate --reset ` or for Ethereum test network (Rinkeby) run: `truffle migrate --network rinkeby --reset` or change `rinkeby` to `ropsten`
+* To verify contract code on Ethereum test network add your Etherscan API key to `.ethKey` and for (Rinkeby) run: `truffle run verify TestToken --network rinkeby` or change `rinkeby` to `ropsten`
 #
 TokenStaking Smart Contract Address on Test Net
 * Ropsten: Verified: https://ropsten.etherscan.io/address/0x0Fab2A018bB44DD2a6Ef7C55F057Dd9d9eC1B19F#contracts
