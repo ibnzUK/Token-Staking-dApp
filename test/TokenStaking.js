@@ -90,8 +90,8 @@ contract('TokenStaking', ([creator, user]) => {
     });
 
     // 3.3 Testing stakeTokens function
-    it('aproving tokens, staking tokens, checking balance', async () => {
-      // first aprove tokens to be staked
+    it('approving tokens, staking tokens, checking balance', async () => {
+      // first approve tokens to be staked
       await testToken.approve(tokenStaking.address, tokenCorvert('1000'), {
         from: user,
       });
@@ -222,7 +222,7 @@ contract('TokenStaking', ([creator, user]) => {
     });
 
     // 6.2 checking Users Balance before staking
-    it('checking usrs balance before staking', async () => {
+    it('checking users balance before staking', async () => {
       result = await testToken.balanceOf(user);
       assert.equal(
         result.toString(),
@@ -232,8 +232,8 @@ contract('TokenStaking', ([creator, user]) => {
     });
 
     // 6.3 testing if user able to stake in custom staking
-    it('aproving tokens, staking tokens, checking balance', async () => {
-      // first aprove tokens to be staked
+    it('approving tokens, staking tokens, checking balance', async () => {
+      // first approve tokens to be staked
       await testToken.approve(tokenStaking.address, tokenCorvert('1234'), {
         from: user,
       });

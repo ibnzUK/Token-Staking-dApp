@@ -3,7 +3,7 @@
 
 
 
-###### Blockchain Token Staking dApp built with React, Solidity, on ethereum Ganache testnet <h6>
+###### Blockchain Token Staking dApp built with React, Solidity, on Ethereum Ganache, Ropsten, Rinkeby testnet networks <h6>
 
 
 ![Preview](src/assets/screenshot.png)
@@ -20,8 +20,8 @@
 - [x] Implemented testing 
 - [x] Added redistribution script
 * 
-- [x] Injected web3 and metamask
-- [x] Ability to detect if metamask installed, logged, locked
+- [x] Injected web3 and Metamask
+- [x] Ability to detect if Metamask installed, logged, locked
 - [x] Added skeletons for totalStaked, myStake, 
 - [x] Added skeletons for Tester to Redistribute rewards and claim test tokens
 * 
@@ -31,8 +31,8 @@
 - [x] Stake, Unstake is now working
 - [x] Redistribute rewards for (Admin only) is now working
 * 
-- [x] Implemented totalstaked
-- [x] Implemented ability to claim test token(Tst) (FOR TESTIN PURPOSE ONLY)
+- [x] Implemented totalStaked
+- [x] Implemented ability to claim test token(Tst) (FOR TESTING PURPOSE ONLY)
 - [x] Added amount type validity check
 - [x] Add ability for user to stake max 
 * 
@@ -52,14 +52,14 @@
 - [x] Added UI Elements
 - [x] Loaders fixed
 * 
-- [x] Added checks and restrictions for when metamask is not connected
+- [x] Added checks and restrictions for when Metamask is not connected
 - [x] UI Optimised for mobiles
 - [x] Production build uploaded to https://ibnz-staking.netlify.app/ for preview and test run
 * 
 - [ ] Add clear running description
 
 ```diff
-- Warning
+- # Token Staking dApp <h1>
 ```
 Front end functions to `Claim for 1000 Tst` token and `Redistribute rewards or Custom redistribution` are only for testing purpose and showcase of application. Do not include or use them in your final project.
 ![Preview](src/assets/screenshot4.png)
@@ -73,11 +73,11 @@ Front end functions to `Claim for 1000 Tst` token and `Redistribute rewards or C
 * To run tests from /test/TokenStaking (truffle test)
  
 ## For Admin Use
-* There are prewritten scripts for Admin use either manually or on daily, weekly basic, idealy with predefined cronjob from server.
+* There are prewritten scripts for Admin use either manually or on daily, weekly basic, ideally with predefined cronjob from the server.
 * All scripts are located in `/scripts` folder
-* To change APY % run: ```truffle exec scripts/changeAPY.js 0.137``` this script takes 1 argument (daily apy),  in this provided example, admin sets `0.137` daily APY 
+* To change APY % run: ```truffle exec scripts/changeAPY.js 0.137``` this script takes 1 argument (daily APY),  in this provided example, admin sets `0.137` daily APY 
  ![Preview](src/assets/screenshot2.png)
-* To redistribute rewards from console, run: ```truffle exec scripts/redistribute.js``` or provide argument `custom` if you want to redistribute custom rewards
+* To redistribute rewards from the console, run: ```truffle exec scripts/redistribute.js``` or provide argument `custom` if you want to redistribute custom rewards
   ![Preview](src/assets/screenshot3.png)
 
 
@@ -93,7 +93,7 @@ mocha testing output
     TokenStaking stakeTokens function
       ✓ users balance is correct before staking (126ms)
       ✓ checking total staked before any stakes (126ms)
-      ✓ aproving tokens, staking tokens, checking balance (1259ms)
+      ✓ approving tokens, staking tokens, checking balance (1259ms)
       ✓ checking contract balance after staking (156ms)
       ✓ checking user balance inside contract (131ms)
       ✓ checking total staked (136ms)
@@ -108,8 +108,8 @@ mocha testing output
       ✓ checking total staked (132ms)
     TokenStaking [custom] staking/unstaking functions
       ✓ checking total custom staked before any stakes (132ms)
-      ✓ checking usrs balance before staking (165ms)
-      ✓ aproving tokens, staking tokens, checking balance (1131ms)
+      ✓ checking users balance before staking (165ms)
+      ✓ approving tokens, staking tokens, checking balance (1131ms)
       ✓ checking custom total staked (125ms)
       ✓ testing if user is staking at custom staking at the moment (147ms)
       ✓ testing if user has staked at custom staking (107ms)
@@ -126,7 +126,7 @@ mocha testing output
 ```      
 
 
-For private ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
+For private Ethereum test network make sure Ganache is running on HTTP://127.0.0.1:7545
 
 
 TokenStaking Smart Contract Address on Test Net

@@ -74,7 +74,8 @@ module.exports = {
 
 // call console - truffle console
 // get contract - await TestToken.deployed()
-// to compile -    truffle compile
-// to deploy - truffle migrate --reset
 
+// to compile - truffle compile
+// to deploy - truffle migrate --reset
+// to deploy - truffle migrate --network rinkeby --reset
 // to verify - truffle run verify Contract --network rinkeby
