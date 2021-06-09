@@ -17,7 +17,7 @@ const App = () => {
   const [totalStaked, setTotalStaked] = useState([0, 0]);
   const [myStake, setMyStake] = useState([0, 0]);
   const [appStatus, setAppStatus] = useState(true);
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [userBalance, setUserBalance] = useState('0');
   const [apy, setApy] = useState([0, 0]);
   const [page, setPage] = useState(1);
