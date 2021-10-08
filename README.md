@@ -6,8 +6,19 @@ Working Demo: https://ibnz-staking.netlify.app/
 #### Blockchain Token Staking dApp built with React, Solidity, on Ethereum Ganache, Ropsten, Rinkeby testnet networks <h6>
 
 
+
 ![Preview](src/assets/screenshot.png)
 - 
+ ## License and Legal Agreement 
+IMPORTANT
+
+This application and its code is NOT free to use, modify or resale. 
+By using it you agree to not violate Plagiarism and Copyright Infringment
+
+In order to use application code for modification or on own projects please contact info@ibnz.co.uk to obtain full licence. 
+ 
+-
+ 
 ## Changes
 - [x] Added ERC20 TestToken 
 - [x] Added Token Staking basic contract
@@ -145,3 +156,7 @@ Current Admin on Test Net
 Front end functions to `Claim for 1000 Tst` token and `Redistribute rewards or Custom redistribution` are only for testing purpose and showcase of application. Do not include or use them in your final project.
 
 ![Preview](src/assets/screenshot4.png)
+
+ 
+
+
