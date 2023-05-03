@@ -16,7 +16,17 @@ This application and its code is NOT free to use, modify or resale.
 By using it you agree to not violate Plagiarism and Copyright Infringment
 
 In order to use application code for modification or on own projects please contact info@ibnz.co.uk to obtain full licence. 
- 
+
+```
+The idea of me including licensing and restrictions is mainly to protect users from reselling the software. The software was created for educational purposes and should be used mainly as a reference. 
+However, there are a few very successful projects who are using my code without giving credit back. My application description is included on their whitepaper, where developers claim that this is the product they developed.  Some haven't even changed the UI :)
+
+In order to stop scenarios like this, I included a little description where I mention the License for the software.  
+The License is a written agreement from me that issues full rights to modify, resell, and use software and code without giving credit to the author or original repo. 
+
+The License fee is 0.3 ETH
+I charge everyone the same price and I found this to be a genuine and fair price to charge. 
+ ```
 -
  
 ## Changes
